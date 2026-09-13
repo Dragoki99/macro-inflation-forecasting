@@ -1,0 +1,6 @@
+pandas
+numpy
+matplotlib
+statsmodels
+fredapi
+python-dotenv
