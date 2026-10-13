@@ -1,0 +1,344 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{unicablue}{RGB}{45,58,104}
+\definecolor{unicared}{RGB}{153,38,45}
+\definecolor{tint}{RGB}{228,231,240}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\linespread{1.12}
+
+\titleformat{\section}{\Large\bfseries\color{unicablue}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{14pt}{4pt}
+
+\newcommand{\slide}[3]{\Needspace{14\baselineskip}\section{#1}\textcolor{unicared}{\small\bfseries\MakeUppercase{#3}\quad\textperiodcentered\quad #2}\par}
+
+\newtcolorbox{say}{breakable,colback=white,colframe=unicablue,boxrule=0pt,leftrule=3pt,arc=0pt,
+  left=10pt,right=6pt,top=4pt,bottom=4pt,fontupper=\large,
+  before upper={\setlength{\parskip}{7pt}}}
+\newtcolorbox{nums}{colback=tint,colframe=tint,arc=0pt,left=8pt,right=8pt,top=3pt,bottom=3pt,
+  fontupper=\small,title={\small\bfseries Numbers to remember},coltitle=unicablue,
+  colbacktitle=tint,attach title to upper={\ \ }}
+\newtcolorbox{ask}{colback=white,colframe=unicared!60,boxrule=0.4pt,arc=0pt,left=8pt,right=8pt,
+  top=3pt,bottom=3pt,fontupper=\small}
+\newcommand{\idea}[1]{\par{\small\itshape\color{unicablue}In una frase: #1}\par}
+\newcommand{\pause}{\textcolor{unicared}{\,/\!/\,}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{unicablue}Resolving the Amenity Puzzle --- speaker script}
+\fancyhead[R]{\small\color{unicablue}14 October 2026}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+{\color{unicablue}\Huge\bfseries Speaker script\par}
+\vspace{2pt}
+{\Large Resolving the Amenity Puzzle --- Homework 1, Spatial \& Regional Economics\par}
+\vspace{6pt}
+{\small Full speech for all 14 slides, one speaker. About 14--15 minutes at a calm pace.}
+
+\begin{tcolorbox}[colback=tint,colframe=tint,arc=0pt]
+\small
+\textbf{How to use this script.}
+\begin{itemize}[leftmargin=14pt,itemsep=1pt,topsep=2pt]
+  \item The \textbf{blue-bordered text} is what you say. It is written to be spoken: short sentences, one idea each.
+  \item \pause\ marks a natural pause: look at the slide, let the number sink in.
+  \item Formulas are written as you would \emph{say} them; the slide shows them in symbols.
+  \item \textbf{Numbers to remember} lists the figures on that slide. \textbf{If asked} gives a short answer to the most likely question.
+  \item The Italian line at the end of each slide is the idea in one sentence, to check you understood it, not to say aloud.
+  \item Do not read word by word. Learn the logic of each slide; the numbers are the only thing to memorise.
+\end{itemize}
+\end{tcolorbox}
+
+% ======================================================================
+\slide{Slide 1 --- Title and opening}{1 min 15 s}{Introduction}
+
+\begin{say}
+Good morning, Professor. We are Davide Maiellaro, Caterina Congia, Federica Stella Favalli and Lorenzo Piva.
+
+Let me start with a fact from Topic 2. Munich pays about forty percent more than Saxony, and it has done so for more than fifteen years. \pause\ So why doesn't everyone move to Munich?
+
+The Rosen--Roback answer is spatial equilibrium: if people stay in a place, what it offers must compensate for what it costs. High wages must be offset by something --- either bad amenities, or high prices.
+
+Our homework shows what happens when a model gets this compensation wrong. \pause\ If we use the simplest model, the one without land, to measure how pleasant cities are, it tells us something absurd: that the largest, most dynamic cities are the worst places to live.
+
+So today we answer three questions. \textbf{First:} why does the model without land produce this puzzle? \textbf{Second:} how does adding land and rents resolve it? \textbf{Third:} once we add agglomeration spillovers, what can the data actually tell us --- and what can't they?
+\end{say}
+
+\begin{nums}
+Munich vs Saxony: wages about $+40\%$; property prices vary about $\times 10$ across space, wages only about $\times 1.5$ (Topic 2).
+\end{nums}
+\idea{il modello senza terra, usato come strumento di misura, dice che le grandi città sono le peggiori; noi spieghiamo perché e come si corregge.}
+
+% ======================================================================
+\slide{Slide 2 --- Recovered amenities do not attract people}{1 min 15 s}{Part A \textperiodcentered{} point (a)}
+
+\begin{say}
+We started by running the script exactly as it was given.
+
+The top-right panel plots log population against recovered log amenities. \pause\ The OLS slope is \textbf{plus 0.19}, with an R-squared of \textbf{0.005}. The cloud is essentially flat.
+
+Why is this surprising? Utility is U equals w times B, so people value amenities. And if we multiply the two inversion formulas, we get A-hat times B-hat equal to W times L to the gamma. \pause\ This means that, at the same productivity, a city with one percent higher amenities must be one over gamma --- \textbf{3.33 percent} --- larger. We should see a clearly rising line.
+
+So where does the flat line come from? Since B-hat equals W over w, the slope of this panel is simply \emph{minus the covariance of log L and log w, divided by the variance of log w}. In the original script, L and w are drawn independently. \pause\ So that covariance is zero, and the slope is zero \emph{by construction}. The 0.19 is just sampling noise: in this draw the correlation between log L and log w is minus 0.07.
+\end{say}
+
+\begin{nums}
+Slope $+0.19$, $R^2 = 0.005$ \quad$\cdot$\quad expected: $1/\gamma = 3.33$ at equal $\hat A$ \quad$\cdot$\quad corr$(\log L,\log w) = -0.07$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Is the model wrong?'' --- No. The inversion fits any data exactly. The panel just mirrors how $L$ and $w$ co-move in the data we feed in.
+\end{ask}
+\idea{il pannello è piatto perché $\hat B = W/w$ e nei dati $L$ e $w$ sono indipendenti.}
+
+% ======================================================================
+\slide{Slide 3 --- When wages are the only price, big cities look bad}{1 min 15 s}{Part A \textperiodcentered{} point (b)}
+
+\begin{say}
+The problem is the assumption that L and w are independent. It contradicts \textbf{Fact 4 of Topic 1}, the urban wage premium: denser places pay more, as Autor documents.
+
+So we corrected the data-generating block: log w equals phi times log L plus noise, with \textbf{phi equal to 0.08}, in line with the gradients in Autor's figure.
+
+Before running the script, we made a prediction. \pause\ Since log B-hat is a constant minus log w, it becomes a constant minus phi log L minus noise. The derivative with respect to log L is \emph{minus phi}: negative. So we predicted a negative panel.
+
+And the run confirms it: the slope is \textbf{minus 4.71}. \pause\ This is the puzzle in its sharpest form. The model reads the high wages of big cities as compensation for bad amenities. It mistakes an \emph{expensive} city for an \emph{unpleasant} one.
+\end{say}
+
+\begin{nums}
+$\phi = 0.08$, $\sigma_\varepsilon = 0.15$ \quad$\cdot$\quad $\partial\log\hat B/\partial\log L = -\phi$ \quad$\cdot$\quad slope $-4.71$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Why 0.08?'' --- Reading Autor's figure, log wages rise by about 0.5--0.6 over roughly 7 log points of density: an elasticity of about 0.07--0.08. Any $\phi>0$ gives the same sign.
+\end{ask}
+\idea{con il premio salariale urbano, il modello legge i salari alti come compenso per amenities basse.}
+
+% ======================================================================
+\slide{Slide 4 --- Not a fluke: 5,000 Monte Carlo draws}{50 s}{Part A \textperiodcentered{} point (b), robustness}
+
+\begin{say}
+One draw could be luck, so we repeated both data-generating blocks \textbf{5,000 times}.
+
+With the original block, the slope is centred on zero: the flat panel of point (a) is the typical outcome. \pause\ With the corrected block, the whole distribution lies below zero, with a mean of \textbf{minus 2.73}, close to the analytical value of about \textbf{minus 2.9}.
+
+So this is not a fluke. It is a structural property of a model in which the wage is the only price: \emph{it cannot tell an expensive city from an unpleasant one.}
+\end{say}
+
+\begin{nums}
+Monte Carlo mean $-2.73$ \quad$\cdot$\quad formula $-\phi v_L/(\phi^2 v_L+\sigma^2) \approx -2.9$.
+\end{nums}
+\idea{il segno negativo non è un caso: è strutturale.}
+
+% ======================================================================
+\slide{Slide 5 --- Amenity spillovers cannot rescue the panel}{1 min 15 s}{Part A \textperiodcentered{} point (c)}
+
+\begin{say}
+Could spillovers save the model? Suppose B equals b times L to the eta, with b exogenous.
+
+First question: does the panel with \emph{total} recovered B change? \pause\ No. The mobility condition only involves total amenities --- people don't care whether amenities come from nature or from other people. And the inversion, B equals W over w, uses only observed wages. Eta never enters. The panel is identical to point (b).
+
+Second question: the panel with the \emph{exogenous} part, b-hat equal to B-hat times L to the minus eta. Taking logs, log b-hat is log B-hat minus eta log L. So the derivative with respect to log L is \textbf{minus (phi plus eta)}. With positive spillovers, exogenous amenities fall even \emph{faster} with size: the correlation goes from minus 0.66 to minus 0.98.
+
+One precision: the derivative gives the \emph{sign}. The fitted line of log L on log b actually gets flatter, because log L is on the vertical axis. \pause\ The panel would turn positive only with congestion stronger than the wage premium, eta below minus phi. So spillovers do not solve the puzzle.
+\end{say}
+
+\begin{nums}
+$\partial\log\hat b/\partial\log L = -(\phi+\eta)$ \quad$\cdot$\quad corr: $-0.66 \to -0.98$ \quad$\cdot$\quad positive only if $\eta < -\phi = -0.08$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``So spillovers are irrelevant?'' --- Not in the model: they matter for the equilibrium and counterfactuals (Part C). They are irrelevant only for the \emph{measured total} $\hat B$, because the inversion reads it off wages alone.
+\end{ask}
+\idea{gli spillover cambiano come scomponiamo $B$, non il suo totale.}
+
+% ======================================================================
+\slide{Slide 6 --- Noise attenuates the slope toward zero}{1 min}{Part A \textperiodcentered{} point (d), bonus}
+
+\begin{say}
+The bonus asks about noise. With \textbf{zero noise}, log w is exactly phi log L, so every point lies on one straight line. The slope is exactly \textbf{minus one over phi: minus 12.5}, and the script confirms it.
+
+When we switch the noise back on, the slope moves \emph{toward zero}. \pause\ Why? The noise sits in the regressor --- log B-hat is c minus log w --- but it is unrelated to L. It spreads the points horizontally without moving them vertically. So the covariance stays the same, while the variance of the regressor grows.
+
+The slope becomes minus one over phi times a reliability ratio of about \textbf{0.23}: roughly \textbf{minus 2.9}, and minus 2.73 in the simulations. This is classical attenuation. And if the noise grows without limit, the slope goes to zero --- exactly the flat panel of point (a).
+\end{say}
+
+\begin{nums}
+$\sigma = 0$: slope $-1/\phi = -12.5$ \quad$\cdot$\quad $\lambda = \phi^2 v_L/(\phi^2 v_L+\sigma^2) \approx 0.23$ \quad$\cdot$\quad $-12.5\times0.23 \approx -2.9$.
+\end{nums}
+\idea{il rumore allarga la nuvola in orizzontale: la varianza sale, la covarianza no, la pendenza si avvicina a zero.}
+
+% ======================================================================
+\slide{Slide 7 --- Adding land turns the panel positive}{1 min}{Part B \textperiodcentered{} point (a)}
+
+\begin{say}
+Now the resolution. In Part B people also pay rent. Utility becomes U equals w times B over r to the one minus mu, where one minus mu is the housing share. Rents come from housing-market clearing: r equals one minus mu, times w times L, over H.
+
+We run the same corrected data, same seed, through the new model. \pause\ The population--amenities slope becomes \textbf{plus 3.53}, against minus 4.71 without land. Over 5,000 Monte Carlo draws the mean is \textbf{plus 3.42}, very close to the formula value of \textbf{3.46}, and it is positive in \textbf{100 percent} of the draws.
+
+Two more things on the table. The productivity panels are identical to Part A, because recovered productivity does not depend on rents. And the wages--amenities panel, which was exactly minus one by construction, is now a cloud with slope \textbf{plus 0.09}: wages are no longer the only signal of amenities.
+\end{say}
+
+\begin{nums}
+Single draw $+3.53$ (vs $-4.71$) \quad$\cdot$\quad MC mean $+3.42$, formula $3.46$, $100\%$ positive \quad$\cdot$\quad wages vs amenities $+0.09$.
+\end{nums}
+\idea{con gli affitti, le città grandi risultano attraenti: la pendenza diventa positiva.}
+
+% ======================================================================
+\slide{Slide 8 --- Two channels, one threshold}{1 min 30 s}{Part B \textperiodcentered{} points (b), (c), (d)}
+
+\begin{say}
+Why does the sign flip? Substituting the rent equation into the inversion, B-hat is proportional to w to the minus mu times L to the one minus mu. With log w equal to phi log L plus noise, log B-hat equals a constant plus \emph{one minus mu, minus mu phi}, times log L.
+
+So city size enters through \textbf{two channels with opposite signs}. \pause\ The \textbf{rent channel}, plus one minus mu, is \textbf{0.30}: with fixed land, bigger cities have higher rents; if people stay anyway, the model reads high amenities. The \textbf{wage channel}, minus mu phi, is \textbf{0.056}: this is the only channel we had in Part A. The net effect is \textbf{plus 0.244}.
+
+Call that bracket d. The OLS slope is d times v over d squared v plus mu squared sigma squared. The denominator is always positive, so the slope is positive \emph{if and only if} d is positive: \textbf{phi below one minus mu over mu}, which is \textbf{0.43}. A condition in mu only. Realistic wage premia, between 0.02 and 0.08, are far below it.
+
+Finally, we raised phi in the script, 5,000 draws per value. \pause\ Simulation and formula agree in every row: the slope is positive up to 0.40, exactly zero at \textbf{0.4286} --- with exactly half of the draws positive --- and negative beyond. Draw by draw, the flip point has a mean of 0.4284.
+\end{say}
+
+\begin{nums}
+Rent $+0.30$, wage $-0.056$, net $+0.244$ \quad$\cdot$\quad $\phi^* = (1-\mu)/\mu = 0.4286$ \quad$\cdot$\quad at $\phi = 0.08$: simulated $3.42$, formula $3.46$ \quad$\cdot$\quad at $\phi^*$: $0.00$ and $50\%$ positive \quad$\cdot$\quad flip point mean $0.4284$, sd $0.021$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Why is the slope not monotonic in $\phi$?'' --- Near the threshold $d\to0$, so $\hat B$ is almost pure noise and the ratio is unstable; past $\phi^*$ it reaches about $-4.76$ near $\phi = 0.58$, then returns toward zero.
+\end{ask}
+\idea{gli affitti alzano le amenities misurate (0.30), i salari le abbassano (0.056): vince l'affitto finché $\phi < 0.43$.}
+
+% ======================================================================
+\slide{Slide 9 --- Land reconciles the model with Topic 1}{1 min}{Part B \textperiodcentered{} point (e)}
+
+\begin{say}
+What does the model with land match \emph{at the same time} that the model without land could not?
+
+Three facts. The \textbf{urban wage premium}: the correlation between log L and log w is \textbf{0.49}. The \textbf{urban rent premium}: with fixed land, rents rise with population, correlation \textbf{0.99}. And \textbf{big cities can be desirable}: the amenity slope is about \textbf{plus 3.46}. \pause\ The model without land could match the wage premium only by making big cities look unpleasant --- and it had no rent at all. Land is also the dispersion force that keeps city sizes finite.
+
+We also want to be honest about the limits. With fixed land and Cobb--Douglas preferences, rents rise with size with an elasticity of about one plus phi, \textbf{1.08}, far above the \textbf{0.16 to 0.20} measured in Topic 1, where housing supply partly adjusts. And the model has no trade costs and no worker sorting.
+\end{say}
+
+\begin{nums}
+corr$(\log L,\log w) = 0.49$ \quad$\cdot$\quad corr$(\log L,\log r) = 0.99$ \quad$\cdot$\quad slope $\approx +3.46$ \quad$\cdot$\quad rent elasticity $1.08$ vs $0.16$--$0.20$.
+\end{nums}
+\idea{con la terra i fatti stanno insieme: salari alti, affitti alti e città grandi attraenti.}
+
+% ======================================================================
+\slide{Slide 10 --- Agglomeration versus dispersion: the sign of $\theta$}{1 min 30 s}{Part C \textperiodcentered{} points (a) and (b)}
+
+\begin{say}
+In Part C, fundamentals depend on size: A equals A-bar times L to the lambda, and B equals B-bar times L to the eta.
+
+Wages, rents and utility all become powers of L, and the mobility condition becomes: G times L to the theta equals W. \pause\ G collects the exogenous fundamentals --- natural productivity, natural amenities and housing. And \textbf{theta} is one number: \emph{eta plus mu lambda}, minus \emph{one minus mu plus mu gamma}.
+
+The first bracket is \textbf{agglomeration}: the amenity spillover, and the productivity spillover weighted by mu, because only that share of the wage is spent on goods. The second is \textbf{dispersion}: housing congestion, and decreasing returns to labour.
+
+If theta is negative, utility falls with size. So there is exactly one equilibrium, and it is stable: an inflow lowers welfare and pushes people back. \pause\ As theta approaches zero from below, the exponent one over absolute theta explodes, and the best location takes everything: in our runs the largest city goes from \textbf{4.8 to 53 percent} of the population. If theta is positive, the interior equilibrium is unstable and history decides. In our calibration, \textbf{theta is minus 0.311}.
+\end{say}
+
+\begin{nums}
+$\theta = (\eta+\mu\lambda) - [(1-\mu)+\mu\gamma]$ \quad$\cdot$\quad $\theta = -0.311$ ($\theta_0 = -0.51$ without spillovers) \quad$\cdot$\quad largest share $4.8\% \to 53\%$, HHI $0.024 \to 0.50$ \quad$\cdot$\quad $\theta>0$ needs $\eta > 0.461$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``What is G?'' --- $G_i = \bar A_i^{\mu}\bar B_i (H_i/(1-\mu))^{1-\mu}$: everything that makes a city attractive regardless of its size. Population is $(G/W)^{1/|\theta|}$.
+\end{ask}
+\idea{$\theta$ è la differenza tra forze di agglomerazione e di dispersione; se è negativo l'equilibrio è unico e stabile.}
+
+% ======================================================================
+\slide{Slide 11 --- Same data, different spillovers, identical fit}{1 min}{Part C \textperiodcentered{} point (c)}
+
+\begin{say}
+Now the question of measurement. From data on L, w and r, knowing gamma and mu, we recover the \textbf{composites} A, H and B \emph{exactly} --- with no assumption on lambda or eta.
+
+But the exogenous parts, A-bar and B-bar, exist only for \emph{given} values of lambda and eta. \pause\ And any pair with negative theta reproduces the data exactly: when we re-solve the model, the gap is below \textbf{ten to the minus fourteen}. ``Large spillovers and modest fundamentals'' fits just as well as ``no spillovers and large fundamentals''. In the figure, only the true pair lies on the 45-degree line.
+
+What would pin them down? Exogenous variation in fundamentals: \textbf{natural experiments}, such as the division and reunification of Berlin in Topic 7.
+\end{say}
+
+\begin{nums}
+Gap after re-solving $\leq 10^{-14}$ for every pair \quad$\cdot$\quad only the true pair $(0.07, 0.15)$ gives corr $= 1.0000$.
+\end{nums}
+\idea{dai dati recuperiamo i composti, non le parti esogene: per quelle servono esperimenti naturali.}
+
+% ======================================================================
+\slide{Slide 12 --- A +20\% productivity boom in one location}{1 min}{Part C \textperiodcentered{} point (d)}
+
+\begin{say}
+Now a counterfactual: natural productivity in location 46 rises by 20 percent.
+
+Differentiating the mobility condition, the population response is \emph{mu times one minus pi-j, over absolute theta}. So, to first order, it scales with \textbf{one over absolute theta}. Without spillovers absolute theta is 0.51; with spillovers it is 0.311. \pause\ The ratio is about \textbf{1.64}: spillovers weaken dispersion and amplify the response.
+
+In numbers: the population of location 46 grows by \textbf{49.7 percent} instead of \textbf{27.9}. The local wage rises 9.4 percent, the local rent \textbf{63.7 percent}, and common welfare by 0.215 percent. Every other location loses about 0.7 percent of its population. The first-order formula underestimates, because twenty percent is not a small shock.
+\end{say}
+
+\begin{nums}
+$d\ln L_j = \mu(1-\pi_j)/|\theta|\cdot\varepsilon$ \quad$\cdot$\quad ratio $0.510/0.311 \approx 1.64$ \quad$\cdot$\quad $\Delta L$ $+49.7\%$ vs $+27.9\%$; $\Delta w$ $+9.4\%$ vs $+11.5\%$; $\Delta r$ $+63.7\%$ vs $+42.5\%$; $\Delta W$ $+0.215\%$ vs $+0.228\%$.
+\end{nums}
+\idea{gli spillover riducono $|\theta|$ e amplificano la risposta della popolazione di circa 1.64 volte.}
+
+% ======================================================================
+\slide{Slide 13 --- Same $\theta$, different policy answers}{1 min 15 s}{Part C \textperiodcentered{} point (e)}
+
+\begin{say}
+Here is why identification matters for policy. Population data depend on lambda, eta and mu only through theta. And eta and one minus mu enter theta with opposite signs: \pause\ a large amenity spillover looks exactly like a lower housing share. In our calibration, the pair (0.07, 0.15) and the pair (0, 0.199) have the same theta and the same population response, plus 49.7 percent. On the heat map, the response is constant along iso-theta lines.
+
+An observable that separates them is the \textbf{housing expenditure share} from household budget surveys, which equals one minus mu.
+
+And a policy whose answer depends on it is \textbf{upzoning}, more housing in city j. The response is one minus mu, times one minus pi-j, over absolute theta, times the change in housing. \pause\ So for the same theta, upzoning works well if theta is small because of a large amenity spillover, and poorly if it is small because housing matters little.
+
+There is also a normative point: if eta is positive, amenity spillovers are an externality, cities are too small, and place-based policy can raise welfare.
+\end{say}
+
+\begin{nums}
+$(\lambda,\eta) = (0.07, 0.15)$ and $(0, 0.199)$: same $\theta = -0.311$, same $+49.7\%$ \quad$\cdot$\quad upzoning: $d\ln L_j = (1-\mu)(1-\pi_j)/|\theta|\cdot d\ln H_j$.
+\end{nums}
+\idea{stesso $\theta$ può nascondere mondi diversi, e la politica giusta dipende da quale.}
+
+% ======================================================================
+\slide{Slide 14 --- Takeaways and close}{1 min 15 s}{Conclusion}
+
+\begin{say}
+Let me go back to the question we started with: if Munich pays forty percent more, is it a worse place to live? \pause\ The model without land says yes. The model with land says no --- and our homework shows exactly why.
+
+\textbf{First: wages alone mislead.} When the wage is the only price, the urban wage premium is read as bad amenities, and big cities look unpleasant. The model still fits the data perfectly. That is the point: \emph{a model that fits any data can still measure the wrong thing.}
+
+\textbf{Second: rents resolve the puzzle.} Once land is in the model, rents absorb the high wages of big cities, and amenities turn positive whenever phi is below one minus mu over mu --- a condition comfortably met in reality.
+
+\textbf{Third: the data identify theta, not its parts.} Spillovers and housing shares can produce identical cities. Separating them needs extra information --- expenditure shares or natural experiments --- and the answer to a policy like upzoning depends on it.
+
+So the broader lesson is about measurement: \pause\ \emph{what we infer about places depends on which prices we let the model see.}
+
+Thank you for your attention. We are happy to take your questions.
+\end{say}
+
+\idea{chiudere tornando a Monaco: il modello senza terra dice che è peggiore, quello con la terra no; la lezione è che conta quali prezzi il modello vede.}
+
+% ======================================================================
+\newpage
+\section{Appendix --- likely questions and short answers}
+
+\begin{ask}
+\begin{itemize}[leftmargin=12pt,itemsep=4pt,topsep=2pt]
+\item \textbf{Why does $\hat B$ not depend on $\eta$?} The inversion uses only observed $L$ and $w$. Spillovers change how we split $B$ into $b$ and $L^\eta$, not its total.
+\item \textbf{Why does noise flatten the slope?} The noise is in the regressor $\log\hat B$, unrelated to $L$: it raises the variance but not the covariance. Attenuation, reliability ratio $\approx 0.23$.
+\item \textbf{What is $\phi$?} The elasticity of wages to city size, $\partial\log w/\partial\log L$: the urban wage premium. $\phi = 0.08$ means a city with $10\%$ more people pays about $0.8\%$ more.
+\item \textbf{What is $d$?} The coefficient of $\log L$ in $\log\hat B$: $d = (1-\mu)-\mu\phi = 0.244$. The slope has the sign of $d$.
+\item \textbf{Why are the productivity panels identical in Parts A and B?} $\hat A = wL^\gamma$ does not involve rents, and the seed is the same.
+\item \textbf{Why 1.64 to first order but about 1.78 exactly?} A 20\% shock is not infinitesimal; the linear formula ignores curvature.
+\item \textbf{What if $\theta > 0$?} Utility rises with size: the interior equilibrium is unstable, outcomes are core--periphery and depend on history. Here it would need $\eta > 0.461$.
+\item \textbf{Why can't we identify $\lambda$ and $\eta$?} Any pair with $\theta<0$ reproduces $(L,w,r)$ up to $10^{-14}$. We need exogenous shocks (natural experiments, Topic 7).
+\item \textbf{What is the main limitation of the model with land?} Rent elasticity $1+\phi \approx 1.08$ vs $0.16$--$0.20$ in the data, because land is fixed and preferences are Cobb--Douglas.
+\end{itemize}
+\end{ask}
+
+\end{document}
