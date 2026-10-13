@@ -68,9 +68,9 @@ When we switch the noise back on, the slope moves toward zero. Why? The noise si
 
 Now Part B. With land, utility becomes U equals w times B over r to the power one minus mu, where one minus mu is the housing expenditure share. Rents come from housing-market clearing: r equals one minus mu, times w times L, over H.
 
-We run the same corrected data through the new model. The population–amenities slope becomes plus 3.87 in this draw, against minus 4.71 without land. Over 5,000 Monte Carlo draws, the mean is plus 3.40, and it is positive in every single draw.
+We run the same corrected data through the new model. The population–amenities slope becomes plus 3.53 in this draw, with the same seed, against minus 4.71 without land. Over 5,000 Monte Carlo draws, the mean is plus 3.42, very close to the formula value of 3.46, and it is positive in 100% of the draws. The two productivity panels are identical to Part A, because recovered productivity does not depend on rents.
 
-Notice also the wages–amenities panel. Without land it was exactly minus 1 by construction. Now it is a cloud, with slope close to zero, because amenities are read from rents and wages together, not from wages alone.
+Notice also the wages–amenities panel. Without land it was exactly minus 1 by construction. Now it is a cloud, with slope plus 0.09, close to zero, because amenities are read from rents and wages together, not from wages alone.
 
 ---
 
@@ -80,15 +80,15 @@ Points (b), (c) and (d). Why does the sign flip? Using the rent equation, B-hat 
 
 City size enters through two channels with opposite signs. The rent channel is plus one minus mu, that is 0.30: with fixed land, bigger cities have higher rents, and if people stay anyway, the model reads high amenities. The wage channel is minus mu phi, that is minus 0.056: this is the only channel we had in Part A. The net effect is plus 0.244.
 
-For point (c), call the bracket d. The OLS slope is d times the variance of log L, over d squared times that variance plus mu squared sigma squared. The denominator is always positive, so the slope is positive if and only if d is positive. That means phi below one minus mu over mu, which is 0.43 for mu equal to 0.7. Realistic wage premia, between 0.02 and 0.08, are far below the threshold.
+For point (c), call the bracket d. The OLS slope is d times the variance of log L, over d squared times that variance plus mu squared sigma squared. The denominator is always positive, so the slope is positive if and only if d is positive. That means phi below one minus mu over mu, which is 0.43 for mu equal to 0.7. Realistic wage premia, between 0.02 and 0.08, are far below the threshold. At our baseline phi of 0.08, the formula gives 3.46 and the simulation 3.42.
 
-For point (d), we raised phi in the script and averaged 2,000 draws for each value. The simulated slope matches the formula in every row. It stays positive up to 0.40, it is exactly zero at 0.4286, and it turns negative afterwards. The curve is not monotonic: near the threshold the recovered amenities are almost pure noise.
+For point (d), we raised phi in the script and averaged 5,000 draws for each value, using the same random numbers for every phi. The simulated slope matches the formula in every row. It stays positive up to 0.40, it is exactly zero at 0.4286, where exactly half of the draws are positive, and it turns negative afterwards. Draw by draw, the flip point has a mean of 0.4284, with a standard deviation of 0.021. The curve is not monotonic: near the threshold the recovered amenities are almost pure noise.
 
 ---
 
 ## Slide 9: Land reconciles the model with Topic 1 (Federica)
 
-Point (e). Which facts of Topic 1 does the model with land match at the same time? First, the urban wage premium: the correlation between log L and log w is about 0.50. Second, the urban rent premium: with fixed land, rents rise with population, and the correlation is about 0.99. Third, big cities can be desirable: the amenity slope is about plus 3.45. The model without land could match the wage premium only by making big cities look unpleasant, and it had no rent at all. Land is also the dispersion force that keeps city sizes finite.
+Point (e). Which facts of Topic 1 does the model with land match at the same time? First, the urban wage premium: the correlation between log L and log w is 0.49. Second, the urban rent premium: with fixed land, rents rise with population, and the correlation is about 0.99. Third, big cities can be desirable: the amenity slope is about plus 3.46. The model without land could match the wage premium only by making big cities look unpleasant, and it had no rent at all. Land is also the dispersion force that keeps city sizes finite.
 
 We also want to be honest about the limits. With fixed land and Cobb–Douglas preferences, the elasticity of rents to size is about 1 plus phi, that is 1.08, far above the 0.16 to 0.20 of Topic 1, where housing supply partly adjusts. And the model has no trade costs and no worker sorting.
 
@@ -153,6 +153,6 @@ Thank you for your attention. We are happy to take questions.
 - **Why does B-hat not depend on eta?** The inversion uses only observed L and w. Spillovers change how we decompose B, not its total value.
 - **Why does the slope get flatter with noise?** Noise adds variance to the regressor log B-hat but no covariance with log L: attenuation.
 - **Why is the first-order ratio 1.64 and the exact one about 1.78?** The shock is 20%, not infinitesimal, and the first-order formula ignores the curvature.
-- **Where do the numbers in Part B come from?** From the script RR2 with phi equal to 0.08, mu equal to 0.7, gamma equal to 0.3, sigma equal to 0.15. Single draw and 5,000 Monte Carlo draws.
+- **Where do the numbers in Part B come from?** From the script RR2 with phi equal to 0.08, mu equal to 0.7, gamma equal to 0.3, sigma equal to 0.15. Single draw with seed 7, and 5,000 Monte Carlo draws with common random numbers.
 - **What if theta is positive?** The interior equilibrium is unstable: core–periphery outcomes and path dependence.
 - **How did you choose phi?** From the slope of the fitted lines in Autor's figure (Topic 1, slide 22): about 0.07–0.08 for college workers.
