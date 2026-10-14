@@ -50,7 +50,7 @@
 \vspace{2pt}
 {\Large Resolving the Amenity Puzzle --- Homework 1, Spatial \& Regional Economics\par}
 \vspace{6pt}
-{\small Full speech for all 16 slides, one speaker. About 17 minutes at a calm pace.}
+{\small Full speech for all 18 slides, one speaker. About 18--19 minutes at a calm pace.}
 
 \begin{tcolorbox}[colback=tint,colframe=tint,arc=0pt]
 \small
@@ -292,28 +292,69 @@ corr$(\log L,\log w) = 0.49$ \quad$\cdot$\quad corr$(\log L,\log r) = 0.99$ \qua
 \idea{con la terra i fatti stanno insieme: salari alti, affitti alti e città grandi attraenti.}
 
 % ======================================================================
-\slide{Slide 12 --- Agglomeration versus dispersion: the sign of $\theta$}{1 min 30 s}{Part C \textperiodcentered{} points (a) and (b)}
+\slide{Slide 12 --- Steps 1--2: what city size does to wages and rents}{1 min 15 s}{Part C \textperiodcentered{} point (a), the model in four steps (1/2)}
 
 \begin{say}
-In Part C, fundamentals depend on size: A equals A-bar times L to the lambda, and B equals B-bar times L to the eta.
+In Part C, fundamentals depend on city size. Capital is fixed at one, productivity is A equals \textbf{A-bar times L to the lambda} --- the productivity spillover --- and amenities are B equals \textbf{B-bar times L to the eta} --- the amenity spillover. A-bar and B-bar are the exogenous, first-nature parts. We solve the model in four steps.
 
-Wages, rents and utility all become powers of L, and the mobility condition becomes: G times L to the theta equals W. \pause\ G collects the exogenous fundamentals --- natural productivity, natural amenities and housing. And \textbf{theta} is one number: \emph{eta plus mu lambda}, minus \emph{one minus mu plus mu gamma}.
+\textbf{Step 1, the wage.} Labour demand gives w equals A times L to the minus gamma, so w equals \textbf{A-bar times L to the lambda minus gamma}. \pause\ It is a tug of war. Plus lambda: more workers make everyone more productive --- knowledge spillovers, labour pooling --- so firms pay more. Minus gamma: with fixed capital, each extra worker adds less output, so the wage falls.
 
-The first bracket is \textbf{agglomeration}: the amenity spillover, and the productivity spillover weighted by mu, because only that share of the wage is spent on goods. The second is \textbf{dispersion}: housing congestion, and decreasing returns to labour.
-
-If theta is negative, utility falls with size. So there is exactly one equilibrium, and it is stable: an inflow lowers welfare and pushes people back. \pause\ As theta approaches zero from below, the exponent one over absolute theta explodes, and the best location takes everything: in our runs the largest city goes from \textbf{4.8 to 53 percent} of the population. If theta is positive, the interior equilibrium is unstable and history decides. In our calibration, \textbf{theta is minus 0.311}.
+\textbf{Step 2, the rent.} Housing market clearing: spending on housing, one minus mu times w times L, equals the rent times the fixed stock H. Substituting the wage, the rent is \textbf{one minus mu, times A-bar over H, times L to the one plus lambda minus gamma}. \pause\ Two channels. The exponent \textbf{one} is scarce land: housing is fixed, so twice the people means twice the demand for the same floor space. And \textbf{lambda minus gamma} is the wage channel: where people earn more, they can bid more for the same housing.
 \end{say}
 
 \begin{nums}
-$\theta = (\eta+\mu\lambda) - [(1-\mu)+\mu\gamma]$ \quad$\cdot$\quad $\theta = -0.311$ ($\theta_0 = -0.51$ without spillovers) \quad$\cdot$\quad largest share $4.8\% \to 53\%$, HHI $0.024 \to 0.50$ \quad$\cdot$\quad $\theta>0$ needs $\eta > 0.461$.
+$A_i = \bar A_iL_i^{\lambda}$, $B_i = \bar B_iL_i^{\eta}$, $K_i = 1$ \quad$\cdot$\quad $w_i = \bar A_iL_i^{\lambda-\gamma}$ \quad$\cdot$\quad $r_i = (1-\mu)\bar A_iH_i^{-1}L_i^{1+\lambda-\gamma}$.
 \end{nums}
 \begin{ask}
-\textbf{If asked:} ``What is G?'' --- $G_i = \bar A_i^{\mu}\bar B_i (H_i/(1-\mu))^{1-\mu}$: everything that makes a city attractive regardless of its size. Population is $(G/W)^{1/|\theta|}$.
+\textbf{If asked:} ``Where does the rent come from?'' --- Cobb--Douglas: each worker spends the share $1-\mu$ of the wage on housing, so total demand is $(1-\mu)w_iL_i/r_i$; setting it equal to the fixed supply $H_i$ gives $r_iH_i = (1-\mu)w_iL_i$.
 \end{ask}
-\idea{$\theta$ è la differenza tra forze di agglomerazione e di dispersione; se è negativo l'equilibrio è unico e stabile.}
+\idea{il salario è un tiro alla fune tra spillover ($+\lambda$) e rendimenti decrescenti ($-\gamma$); l'affitto sale con la popolazione per la terra scarsa (esponente 1) e per i salari più alti ($\lambda-\gamma$).}
 
 % ======================================================================
-\slide{Slide 13 --- Same data, different spillovers, identical fit}{1 min}{Part C \textperiodcentered{} point (c)}
+\slide{Slide 13 --- Steps 3--4: one number, $\theta$, decides the equilibrium}{1 min 30 s}{Part C \textperiodcentered{} point (a), the model in four steps (2/2)}
+
+\begin{say}
+\textbf{Step 3, utility.} A worker chooses where to live by maximizing U equals w times B over r to the one minus mu. Substituting the wage, the rent and the amenity spillover, everything that does not depend on size goes into one term, \textbf{G}: A-bar to the mu, times B-bar, times H over one minus mu to the one minus mu. Size enters only through \textbf{L to the theta}.
+
+\pause\ And theta is one number with four pieces. Two agglomeration forces: \textbf{plus eta}, the amenity spillover --- more variety, culture, services --- and \textbf{plus mu lambda}, the productivity spillover, weighted by mu because only that share of income is spent on goods. Two dispersion forces: \textbf{minus one minus mu}, housing costs eating into welfare, and \textbf{minus mu gamma}, diminishing returns lowering the wage. The rule is simple: if theta is negative, congestion wins; if it is positive, attraction wins.
+
+\textbf{Step 4, the spatial equilibrium.} Workers move at zero cost, so utility must be the same everywhere: U equals W. \pause\ If one city offered more, people would move in, rents and congestion would rise, and the advantage would disappear. So G times L to the theta equals W, and with theta negative, \textbf{L equals G over W, to the one over absolute theta}. Dividing by total population gives the shares in closed form. One over absolute theta is the \textbf{spatial elasticity}: how strongly people move toward better fundamentals.
+\end{say}
+
+\begin{nums}
+$U_i = G_iL_i^{\theta}$, $G_i = \bar A_i^{\mu}\bar B_i\big(H_i/(1-\mu)\big)^{1-\mu}$ \quad$\cdot$\quad $\theta = (\eta+\mu\lambda) - [(1-\mu)+\mu\gamma] = -0.311$ \quad$\cdot$\quad $L_i = (G_i/W)^{1/|\theta|}$ \quad$\cdot$\quad $\pi_i = G_i^{1/|\theta|}/\sum_j G_j^{1/|\theta|}$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Why is lambda weighted by mu but eta is not?'' --- The productivity spillover raises the wage, and the wage gain is partly eaten by rents: only the share $\mu$ spent on goods raises utility. The amenity spillover enters utility directly. \\
+\textbf{If asked:} ``Why does $\theta<0$ give a unique equilibrium?'' --- Utility falls with size, so for each $W$ there is one $L_i$ per city, and total population pins down $W$: one solution, and stable, because an inflow lowers utility and pushes people back.
+\end{ask}
+\idea{tutte le forze si riassumono in $\theta$; con $\theta<0$ la popolazione di ogni città è $(G/W)^{1/|\theta|}$ e $1/|\theta|$ misura quanto la gente reagisce ai fondamentali.}
+
+% ======================================================================
+\slide{Slide 14 --- The effect of $\theta$ on the national map}{1 min 15 s}{Part C \textperiodcentered{} point (b)}
+
+\begin{say}
+What does theta do to the map of the country? Three cases.
+
+\textbf{Left, theta negative: stability.} Congestion keeps growth in check, dispersion forces win. Cities of many different sizes live side by side, and population is spread smoothly across them.
+
+\textbf{Middle, theta approaching zero from below: winner takes all.} \pause\ The two forces almost cancel out, and the exponent one over absolute theta explodes. Population becomes extremely sensitive: a city with only slightly better fundamentals attracts almost everyone.
+
+\textbf{Right, theta positive: core--periphery.} The equilibrium is unstable. Every newcomer makes the city more attractive and pulls in more people, in a self-reinforcing loop. One megacity appears by chance and history --- path dependence --- and the rest of the country empties.
+
+In our calibration, lambda 0.07 and eta 0.15, \textbf{theta is minus 0.311}: we are in the stable case. \pause\ But in our simulations, pushing theta toward zero raises the share of the largest city from \textbf{4.8 to 53 percent}.
+\end{say}
+
+\begin{nums}
+$\theta = -0.311$ ($\theta_0 = -0.51$ without spillovers) \quad$\cdot$\quad largest share $4.8\% \to 53\%$, HHI $0.024 \to 0.50$ \quad$\cdot$\quad $\theta>0$ needs $\eta > 0.461$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Where does the chart come from?'' --- It is a stylized picture of the three regimes; our own numbers are the ones in the bar below it. \\
+\textbf{If asked:} ``What is G?'' --- $G_i = \bar A_i^{\mu}\bar B_i (H_i/(1-\mu))^{1-\mu}$: everything that makes a city attractive regardless of its size.
+\end{ask}
+\idea{$\theta<0$: città di tutte le taglie; $\theta\to0^-$: una città prende quasi tutto; $\theta>0$: instabile, megalopoli per caso; noi siamo a $-0.311$, caso stabile.}
+% ======================================================================
+\slide{Slide 15 --- Same data, different spillovers, identical fit}{1 min}{Part C \textperiodcentered{} point (c)}
 
 \begin{say}
 Now the question of measurement. From data on L, w and r, knowing gamma and mu, we recover the \textbf{composites} A, H and B \emph{exactly} --- with no assumption on lambda or eta.
@@ -329,7 +370,7 @@ Gap after re-solving $\leq 10^{-14}$ for every pair \quad$\cdot$\quad only the t
 \idea{dai dati recuperiamo i composti, non le parti esogene: per quelle servono esperimenti naturali.}
 
 % ======================================================================
-\slide{Slide 14 --- A +20\% productivity boom in one location}{1 min}{Part C \textperiodcentered{} point (d)}
+\slide{Slide 16 --- A +20\% productivity boom in one location}{1 min}{Part C \textperiodcentered{} point (d)}
 
 \begin{say}
 Now a counterfactual: natural productivity in location 46 rises by 20 percent.
@@ -345,7 +386,7 @@ $d\ln L_j = \mu(1-\pi_j)/|\theta|\cdot\varepsilon$ \quad$\cdot$\quad ratio $0.51
 \idea{gli spillover riducono $|\theta|$ e amplificano la risposta della popolazione di circa 1.64 volte.}
 
 % ======================================================================
-\slide{Slide 15 --- Same $\theta$, different policy answers}{1 min 15 s}{Part C \textperiodcentered{} point (e)}
+\slide{Slide 17 --- Same $\theta$, different policy answers}{1 min 15 s}{Part C \textperiodcentered{} point (e)}
 
 \begin{say}
 Here is why identification matters for policy. Population data depend on lambda, eta and mu only through theta. And eta and one minus mu enter theta with opposite signs: \pause\ a large amenity spillover looks exactly like a lower housing share. In our calibration, the pair (0.07, 0.15) and the pair (0, 0.199) have the same theta and the same population response, plus 49.7 percent. On the heat map, the response is constant along iso-theta lines.
@@ -363,7 +404,7 @@ $(\lambda,\eta) = (0.07, 0.15)$ and $(0, 0.199)$: same $\theta = -0.311$, same $
 \idea{stesso $\theta$ può nascondere mondi diversi, e la politica giusta dipende da quale.}
 
 % ======================================================================
-\slide{Slide 16 --- Takeaways and close}{1 min 15 s}{Conclusion}
+\slide{Slide 18 --- Takeaways and close}{1 min 15 s}{Conclusion}
 
 \begin{say}
 Let me go back to the question we started with: if Munich pays forty percent more, is it a worse place to live? \pause\ The model without land says yes. The model with land says no --- and our homework shows exactly why.
