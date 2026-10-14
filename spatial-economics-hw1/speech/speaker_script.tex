@@ -357,16 +357,19 @@ $\theta = -0.311$ ($\theta_0 = -0.51$ without spillovers) \quad$\cdot$\quad larg
 \slide{Slide 15 --- Same data, different spillovers, identical fit}{1 min}{Part C \textperiodcentered{} point (c)}
 
 \begin{say}
-Now the question of measurement. From data on L, w and r, knowing gamma and mu, we recover the \textbf{composites} A, H and B \emph{exactly} --- with no assumption on lambda or eta.
+Now the question of measurement. From data on L, w and r, knowing gamma and mu, we recover the \textbf{composites} \emph{exactly} --- with no assumption on lambda or eta. A comes from \textbf{labour demand}, A equals w L to the gamma. B comes from \textbf{housing clearing and mobility}: B is proportional to r to the one minus mu, over w.
 
-But the exogenous parts, A-bar and B-bar, exist only for \emph{given} values of lambda and eta. \pause\ And any pair with negative theta reproduces the data exactly: when we re-solve the model, the gap is below \textbf{ten to the minus fourteen}. ``Large spillovers and modest fundamentals'' fits just as well as ``no spillovers and large fundamentals''. In the figure, only the true pair lies on the 45-degree line.
+But the exogenous parts, A-bar and B-bar, exist only for \emph{given} values of lambda and eta. \pause\ And any pair with negative theta reproduces the data exactly: when we re-solve the model, the gap is below \textbf{ten to the minus fourteen}. ``Large spillovers and modest fundamentals'' fits just as well as ``no spillovers and large fundamentals''. \pause\ The figure shows what goes wrong: with \emph{wrong} spillover values, the recovered fundamentals are far from reality; only with the \textbf{true} spillovers do the points fall on the 45-degree line.
 
-What would pin them down? Exogenous variation in fundamentals: \textbf{natural experiments}, such as the division and reunification of Berlin in Topic 7.
+So data on wages, rents and population are not enough to separate the two spillovers. To identify them we need a \textbf{strong exogenous shock}, for example the \textbf{Berlin Wall and German reunification}, Topic 7: how the city reorganizes after the shock depends on lambda and eta separately.
 \end{say}
 
 \begin{nums}
 Gap after re-solving $\leq 10^{-14}$ for every pair \quad$\cdot$\quad only the true pair $(0.07, 0.15)$ gives corr $= 1.0000$.
 \end{nums}
+\begin{ask}
+\textbf{If asked:} ``Why does Berlin help?'' --- The Wall cut off access to the old centre: an exogenous change in fundamentals. Comparing the city before and after, the size of the reallocation tells how strong the spillovers are, which a single cross-section cannot.
+\end{ask}
 \idea{dai dati recuperiamo i composti, non le parti esogene: per quelle servono esperimenti naturali.}
 
 % ======================================================================
@@ -375,7 +378,7 @@ Gap after re-solving $\leq 10^{-14}$ for every pair \quad$\cdot$\quad only the t
 \begin{say}
 Now a counterfactual: natural productivity in location 46 rises by 20 percent.
 
-Differentiating the mobility condition, the population response is \emph{mu times one minus pi-j, over absolute theta}. So, to first order, it scales with \textbf{one over absolute theta}. Without spillovers absolute theta is 0.51; with spillovers it is 0.311. \pause\ The ratio is about \textbf{1.64}: spillovers weaken dispersion and amplify the response.
+Differentiating the mobility condition, the population response is \emph{mu times one minus pi-j, over absolute theta}. So, to first order, it scales with \textbf{one over absolute theta}. Without spillovers absolute theta is 0.51; with spillovers it is 0.311. \pause\ The ratio is about \textbf{1.64}: if we reduce net congestion from \textbf{0.510}, the model with land but no spillovers, to \textbf{0.311}, with spillovers, the same shock is \textbf{amplified by 64 percent}. Spillovers weaken dispersion.
 
 In numbers: the population of location 46 grows by \textbf{49.7 percent} instead of \textbf{27.9}. The local wage rises 9.4 percent, the local rent \textbf{63.7 percent}, and common welfare by 0.215 percent. Every other location loses about 0.7 percent of its population. The first-order formula underestimates, because twenty percent is not a small shock.
 \end{say}
@@ -383,6 +386,9 @@ In numbers: the population of location 46 grows by \textbf{49.7 percent} instead
 \begin{nums}
 $d\ln L_j = \mu(1-\pi_j)/|\theta|\cdot\varepsilon$ \quad$\cdot$\quad ratio $0.510/0.311 \approx 1.64$ \quad$\cdot$\quad $\Delta L$ $+49.7\%$ vs $+27.9\%$; $\Delta w$ $+9.4\%$ vs $+11.5\%$; $\Delta r$ $+63.7\%$ vs $+42.5\%$; $\Delta W$ $+0.215\%$ vs $+0.228\%$.
 \end{nums}
+\begin{ask}
+\textbf{If asked:} ``Is 0.510 the model without land?'' --- No: $|\theta_0| = (1-\mu)+\mu\gamma = 0.30 + 0.21 = 0.51$ is the model \emph{with} land and no spillovers; $(1-\mu)$ is housing congestion. The 64\% is first order; the exact simulation gives $49.7/27.9 \approx 1.78$.
+\end{ask}
 \idea{gli spillover riducono $|\theta|$ e amplificano la risposta della popolazione di circa 1.64 volte.}
 
 % ======================================================================
@@ -395,7 +401,7 @@ An observable that separates them is the \textbf{housing expenditure share} from
 
 And a policy whose answer depends on it is \textbf{upzoning}, more housing in city j. The response is one minus mu, times one minus pi-j, over absolute theta, times the change in housing. \pause\ So for the same theta, upzoning works well if theta is small because of a large amenity spillover, and poorly if it is small because housing matters little.
 
-There is also a normative point: if eta is positive, amenity spillovers are an externality, cities are too small, and place-based policy can raise welfare.
+Finally, a \textbf{market failure}. \pause\ If eta is positive, each newcomer raises everyone else's amenities but does not take this into account when choosing where to live. The externality is not internalized, so free-market cities are \textbf{too small}, and this justifies \textbf{place-based subsidies}. If eta is zero, there is nothing to correct, and such policies only create inefficient distortions.
 \end{say}
 
 \begin{nums}
