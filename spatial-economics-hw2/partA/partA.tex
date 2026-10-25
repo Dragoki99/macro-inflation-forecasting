@@ -75,26 +75,26 @@ sdAbar(k) = std(log(inv.A));
 \toprule
 $\lambda$ & $\max_i|\log(A_i^{\text{inv}}/A_i^{\text{true}})|$ & sd$(\log\bar A_i)$\\
 \midrule
-0    & \tbd{x.xe-xx} & \tbd{0.xxxx}\\
-0.07 & \tbd{x.xe-xx} & \tbd{0.xxxx}\\
-0.25 & \tbd{x.xe-xx} & \tbd{0.xxxx}\\
+0    & $1.17\times10^{-12}$ & 0.3033\\
+0.07 & $1.17\times10^{-12}$ & 0.2715\\
+0.25 & $1.17\times10^{-12}$ & 0.2041\\
 \bottomrule
 \end{tabular}
-\caption{Same data $(L,w,H)$, three values of $\lambda$ in the inversion. corr$(\log A,\log L)=\tbd{0.xxx}$.}
+\caption{Same data $(L,w,H)$, three values of $\lambda$ in the inversion. The fixed point converges in 4346 iterations in all three cases; corr$(\log A,\log L)=0.814$, sd$(\log L)=0.575$.}
 \end{table}
 
-\paragraph{Why the error on $A_i$ does not depend on $\lambda$.} The composite comes out of the fixed point on the trade balance, which uses only $L$, $w$ and $\tau$: \texttt{lam} enters \texttt{arm\_invert} only after the loop, in \texttt{A = Aeff ./ L.\^{}lam}. So \texttt{inv.Aeff} is the same vector for every $\lambda$ and matches the true productivity up to numerical precision (the data were generated with $\lambda=0$, so the true composite equals \texttt{Atrue}). This is point (a) in numbers: the composite is identified.
+\paragraph{Why the error on $A_i$ does not depend on $\lambda$.} The composite comes out of the fixed point on the trade balance, which uses only $L$, $w$ and $\tau$: \texttt{lam} enters \texttt{arm\_invert} only after the loop, in \texttt{A = Aeff ./ L.\^{}lam}. So \texttt{inv.Aeff} is the same vector for every $\lambda$ --- same error, $1.17\times10^{-12}$, and even the same number of iterations, 4346 --- and matches the true productivity up to numerical precision (the data were generated with $\lambda=0$, so the true composite equals \texttt{Atrue}). This is point (a) in numbers: the composite is identified.
 
 \paragraph{Why the dispersion of $\log\bar A_i$ does.} The fundamental is $\log\bar A_i=\log A_i-\lambda\log L_i$, so
 \begin{equation}
 \operatorname{var}(\log\bar A)=\operatorname{var}(\log A)-2\lambda\operatorname{cov}(\log A,\log L)+\lambda^2\operatorname{var}(\log L).
 \end{equation}
-Productive locations attract people, so $\log A$ and $\log L$ are strongly positively correlated (\tbd{0.xx} here): the larger $\lambda$, the more of the observed productivity is attributed to size and the less to fundamentals, and the fundamentals look more alike. The variance falls as long as $\lambda$ is below $\operatorname{cov}(\log A,\log L)/\operatorname{var}(\log L)$, the OLS slope of $\log A$ on $\log L$. Same data, same fit, different story about where productivity comes from.
+Productive locations attract people, so $\log A$ and $\log L$ are strongly positively correlated (0.814 here): the larger $\lambda$, the more of the observed productivity is attributed to size and the less to fundamentals, and the fundamentals look more alike. With sd$(\log A)=0.3033$, sd$(\log L)=0.575$ and correlation 0.814, the formula reproduces the table exactly: 0.2715 at $\lambda=0.07$ and 0.2041 at $\lambda=0.25$. The variance falls as long as $\lambda$ is below $\operatorname{cov}(\log A,\log L)/\operatorname{var}(\log L)=0.814\times0.3033/0.575\approx0.43$, the OLS slope of $\log A$ on $\log L$. Same data, same fit, different story about where productivity comes from.
 
 % ======================================================================
 \subsection*{(c) The +20\% shock with three values of $\lambda$}
 
-\paragraph{What we did.} We repeat act 5 --- the same fundamentals \texttt{fund3} and the same $+20\%$ shock to $\bar A_j$ in location $j=\tbd{8}$, the middle of the line --- with \texttt{p} in place of \texttt{par} in both calls to \texttt{arm\_solve}. The baseline equilibrium also changes with $\lambda$, because $A_i=\bar A_iL_i^{\lambda}$.
+\paragraph{What we did.} We repeat act 5 --- the same fundamentals \texttt{fund3} and the same $+20\%$ shock to $\bar A_j$ in location $j=8$, the middle of the line --- with \texttt{p} in place of \texttt{par} in both calls to \texttt{arm\_solve}. The baseline equilibrium also changes with $\lambda$, because $A_i=\bar A_iL_i^{\lambda}$.
 
 \begin{table}[h]
 \centering
@@ -102,9 +102,9 @@ Productive locations attract people, so $\log A$ and $\log L$ are strongly posit
 \toprule
 $\lambda$ & $\Delta L_j$ & $\Delta L_{j-1}$ & $\Delta L_{j+1}$ & $\Delta A_j$ (effective) & $\Delta L_j/\Delta L_j(\lambda{=}0)$\\
 \midrule
-0    & \tbd{+xx.xx\%} & \tbd{+x.xx\%} & \tbd{+x.xx\%} & +20.00\% & 1.00\\
-0.07 & \tbd{+xx.xx\%} & \tbd{+x.xx\%} & \tbd{+x.xx\%} & \tbd{+xx.xx\%} & \tbd{x.xx}\\
-0.25 & \tbd{+xx.xx\%} & \tbd{+x.xx\%} & \tbd{+x.xx\%} & \tbd{+xx.xx\%} & \tbd{x.xx}\\
+0    & $+26.91\%$ & $-1.02\%$ & $-0.28\%$ & $+20.00\%$ & 1.00\\
+0.07 & $+30.34\%$ & $-1.01\%$ & $+0.03\%$ & $+22.25\%$ & 1.13\\
+0.25 & $+45.28\%$ & $-0.69\%$ & $+2.46\%$ & $+31.74\%$ & 1.68\\
 \bottomrule
 \end{tabular}
 \caption{Population change in the shocked location and its two neighbours, and change in its effective productivity $\bar A_jL_j^{\lambda}$.}
@@ -122,10 +122,10 @@ $\lambda$ & $\Delta L_j$ & $\Delta L_{j-1}$ & $\Delta L_{j+1}$ & $\Delta A_j$ (e
 \begin{equation}
 1+\Delta A_j = 1.20\,(1+\Delta L_j)^{\lambda},
 \end{equation}
-so the shock to $\bar A_j$ is $20\%$ in every case, but the productivity the economy actually sees is $\tbd{xx}\%$ at $\lambda=0.07$ and $\tbd{xx}\%$ at $\lambda=0.25$.
+so the shock to $\bar A_j$ is $20\%$ in every case, but the productivity the economy actually sees rises by $22.2\%$ at $\lambda=0.07$ ($1.20\times1.3034^{0.07}=1.2225$) and by $31.7\%$ at $\lambda=0.25$ ($1.20\times1.4528^{0.25}=1.3174$). The population response is amplified by a factor 1.13 and 1.68 relative to $\lambda=0$; with $\lambda=0$ we recover exactly act 5 ($+26.906\%$).
 
-\paragraph{The neighbours.} Two forces act on them (slide 39). Migration pulls workers towards $j$; but the neighbours buy a large share of $j$'s variety, now cheaper, so their price index falls and their real wage rises (``proximity protects''). With $\lambda>0$ $j$'s good becomes cheaper still, so the second force is stronger: \tbd{[describe the sign of the neighbours' change from the table]}.
+\paragraph{The neighbours.} Two forces act on them (slide 39). Migration pulls workers towards $j$; but the neighbours buy a large share of $j$'s variety, now cheaper, so their price index falls and their real wage rises (``proximity protects''). With $\lambda>0$ $j$'s good becomes cheaper still, so the second force is stronger. The table shows it: the left neighbour's loss shrinks from $-1.02\%$ to $-0.69\%$, and the right neighbour goes from $-0.28\%$ to $+0.03\%$ and $+2.46\%$, a gain. The two neighbours differ because their own fundamentals differ (they are drawn at random in act 5). Far from $j$ the price-index gain is small and only the migration pull remains: the farthest locations lose $-1.83\%$ at $\lambda=0$ (act 5) and about $-2.4\%$ at $\lambda=0.25$ (figure). The spillover makes the shock larger and more concentrated in space: the booming location and its neighbours gain more, remote places lose more.
 
-\paragraph{Why it matters for policy.} By point (b) the three values of $\lambda$ fit the same data equally well, yet the same local productivity gain --- a new plant, a subsidy, an infrastructure --- moves \tbd{xx}\% of the population into the location with $\lambda=0$ and \tbd{xx}\% with $\lambda=0.25$. The policy answer depends on a parameter the cross-section cannot identify.
+\paragraph{Why it matters for policy.} By point (b) the three values of $\lambda$ fit the same data equally well, yet the same local productivity gain --- a new plant, a subsidy, an infrastructure --- raises the population of the location by $26.9\%$ with $\lambda=0$ and by $45.3\%$ with $\lambda=0.25$. The policy answer depends on a parameter the cross-section cannot identify.
 
 \end{document}
