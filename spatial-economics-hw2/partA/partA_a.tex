@@ -1,0 +1,67 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+\section*{Part A --- Armington with a productivity spillover}
+
+\subsection*{Point (a)}
+
+\paragraph{Set-up.} As in Topic 6, location $i$ produces one variety with labour only, $Y_i = A_iL_i$, under perfect competition. The mill price is $p_i = w_i/A_i$ and the price paid in destination $n$ is $p_{ni} = \tau_{ni}w_i/A_i$. The only change is the production spillover
+\begin{equation}
+A_i = \bar A_i\,L_i^{\lambda}, \qquad \lambda \ge 0,
+\end{equation}
+so that the delivered price becomes
+\begin{equation}
+p_{ni} = \frac{\tau_{ni}\,w_i}{\bar A_i L_i^{\lambda}} .
+\end{equation}
+
+\paragraph{Price index.} With CES preferences over the $N$ varieties,
+\begin{equation}
+P_n^{1-\sigma} = \sum_{i=1}^{N} p_{ni}^{1-\sigma}
+= \sum_{i=1}^{N} \phi_{ni}\left(\frac{w_i}{\bar A_i L_i^{\lambda}}\right)^{1-\sigma}
+= \sum_{i=1}^{N} \phi_{ni}\,\bar A_i^{\,\sigma-1}\,L_i^{\lambda(\sigma-1)}\,w_i^{1-\sigma},
+\qquad \phi_{ni} = \tau_{ni}^{1-\sigma}.
+\end{equation}
+
+\paragraph{Trade shares.} The share of $n$'s spending on goods from $i$ is
+\begin{equation}
+\pi_{ni} = \frac{p_{ni}^{1-\sigma}}{P_n^{1-\sigma}}
+= \frac{\phi_{ni}\left(w_i/\bar A_i L_i^{\lambda}\right)^{1-\sigma}}
+       {\sum_{k}\phi_{nk}\left(w_k/\bar A_k L_k^{\lambda}\right)^{1-\sigma}} .
+\end{equation}
+
+\paragraph{Trade balance.} Goods-market clearing: the labour income of $i$ equals the spending of all destinations on $i$'s variety,
+\begin{equation}
+w_iL_i = \sum_{n=1}^{N}\pi_{ni}\,E_n,
+\end{equation}
+where $E_n$ is $n$'s spending on goods. With the convention of Topic 6 (spending on goods equal to labour income, $E_n = w_nL_n$),
+\begin{equation}
+w_iL_i = \sum_{n=1}^{N}
+\frac{\phi_{ni}\left(w_i/\bar A_i L_i^{\lambda}\right)^{1-\sigma}}
+     {\sum_{k}\phi_{nk}\left(w_k/\bar A_k L_k^{\lambda}\right)^{1-\sigma}}\;w_nL_n .
+\end{equation}
+Population now appears on both sides: on the left as the size of the labour force, on the right through productivity, with exponent $\lambda(\sigma-1)$.
+
+\paragraph{$\bar A_i$ and $\lambda$ enter only through $A_i$.} In (3)--(6) the fundamental $\bar A_i$ and the elasticity $\lambda$ never appear separately: they appear only in the product $\bar A_iL_i^{\lambda}$, that is in $A_i$. The other equilibrium conditions of Topic 6 --- housing-market clearing, real utility and the Fréchet migration shares --- do not contain productivity at all, except through $P_n$ and $w_n$. Therefore the whole equilibrium $(w, L, P, \pi, r)$ depends on $(\bar A, \lambda)$ only through the composite $A$: two parametrizations with the same $A_i = \bar A_iL_i^{\lambda}$ in every location are the same economy.
+
+\paragraph{Inversion.} Given data $(L_i, w_i, H_i)$, the trade costs and $\sigma$, the inversion of Topic 6 treats the trade-balance condition (6) as $N$ equations in the $N$ unknowns $w_i/A_i$, i.e.\ in $A_i$. Trade shares depend only on relative values of $w_i/A_i$, so $A$ is determined up to a common scale, which a normalization fixes; up to that normalization the solution is unique. The inversion uses $L$ and $w$ as data and never needs $\lambda$: it recovers the composite $A_i$ \emph{exactly} (\texttt{inv.Aeff} in the code).
+
+To go from $A_i$ to the fundamental we need $\lambda$:
+\begin{equation}
+\bar A_i = A_i\,L_i^{-\lambda}.
+\end{equation}
+So $\bar A_i$ is recovered only \emph{for a given} $\lambda$ (\texttt{inv.A}).
+
+\paragraph{Every $\lambda$ fits the data equally well.} Take any $\lambda' \ge 0$ and set $\bar A_i(\lambda') = A_iL_i^{-\lambda'}$. Then $\bar A_i(\lambda')L_i^{\lambda'} = A_i$ in every location, so by the previous paragraph the price indices, trade shares and trade balance are identical to those of the true economy: wages and populations are reproduced exactly, whatever $\lambda'$ is. One cross-section gives $N$ equations that pin down $N$ composites; splitting them into $N$ fundamentals and one $\lambda$ needs information that the cross-section does not contain. As in Part C of Homework 1, the data identify $A$, not $(\bar A, \lambda)$.
+
+\paragraph{Why it matters.} $\lambda$ does not change the fit, but it changes the counterfactuals: after a shock to $\bar A_j$, workers move, $L_j$ changes, and with $\lambda > 0$ productivity $A_j = \bar A_jL_j^{\lambda}$ moves with them. The same data inverted with different $\lambda$ therefore give different answers to the same policy question (point (c)).
+
+\end{document}
