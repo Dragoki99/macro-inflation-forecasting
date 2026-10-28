@@ -1,0 +1,451 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{unicablue}{RGB}{45,58,104}
+\definecolor{unicared}{RGB}{153,38,45}
+\definecolor{tint}{RGB}{228,231,240}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\linespread{1.12}
+
+\titleformat{\section}{\Large\bfseries\color{unicablue}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{14pt}{4pt}
+
+\newcommand{\slide}[3]{\Needspace{14\baselineskip}\section{#1}\textcolor{unicared}{\small\bfseries\MakeUppercase{#3}\quad\textperiodcentered\quad #2}\par}
+
+\newtcolorbox{say}{breakable,colback=white,colframe=unicablue,boxrule=0pt,leftrule=3pt,arc=0pt,
+  left=10pt,right=6pt,top=4pt,bottom=4pt,fontupper=\large,
+  before upper={\setlength{\parskip}{7pt}}}
+\newtcolorbox{nums}{colback=tint,colframe=tint,arc=0pt,left=8pt,right=8pt,top=3pt,bottom=3pt,
+  fontupper=\small,title={\small\bfseries Numbers to remember},coltitle=unicablue,
+  colbacktitle=tint,attach title to upper={\ \ }}
+\newtcolorbox{ask}{breakable,colback=white,colframe=unicared!60,boxrule=0.4pt,arc=0pt,left=8pt,right=8pt,
+  top=3pt,bottom=3pt,fontupper=\small}
+\newcommand{\idea}[1]{\par{\small\itshape\color{unicablue}In una frase: #1}\par}
+\newcommand{\pause}{\textcolor{unicared}{\,/\!/\,}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{unicablue}Measuring Agglomeration --- speaker script}
+\fancyhead[R]{\small\color{unicablue}4 November 2026}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+{\color{unicablue}\Huge\bfseries Speaker script\par}
+\vspace{2pt}
+{\Large Measuring Agglomeration --- Homework 2, Spatial \& Regional Economics\par}
+\vspace{6pt}
+{\small Full speech for all 20 slides, one speaker. About 24--25 minutes at a calm pace: Part A about 8 minutes, Part B about 7, Part C about 7, plus introduction and closing. If only one part is drawn, use slides 1--2, that part, and slide 20.}
+
+\begin{tcolorbox}[colback=tint,colframe=tint,arc=0pt]
+\small
+\textbf{How to use this script.}
+\begin{itemize}[leftmargin=14pt,itemsep=1pt,topsep=2pt]
+  \item The \textbf{blue-bordered text} is what you say. It is written to be spoken: short sentences, one idea each.
+  \item \pause\ marks a natural pause: look at the slide, let the number sink in.
+  \item Formulas are written as you would \emph{say} them; the slide shows them in symbols.
+  \item \textbf{Numbers to remember} lists the figures on that slide. \textbf{If asked} gives a short answer to the most likely question.
+  \item The Italian line at the end of each slide is the idea in one sentence, to check you understood it, not to say aloud.
+  \item When a slide shows code, explain \emph{what the block does}, not every character: say which act it follows and which variable carries the answer.
+\end{itemize}
+\end{tcolorbox}
+
+% ======================================================================
+\slide{Slide 1 --- Measuring Agglomeration}{20 s}{Introduction}
+
+\begin{say}
+Good morning, Professor. We are Davide Maiellaro, Caterina Congia, Federica Stella Favalli and Lorenzo Piva.
+
+Homework 2 is about one parameter, the productivity spillover \textbf{lambda}: how much a location's productivity rises when more people work there.
+\end{say}
+
+% ======================================================================
+\slide{Slide 2 --- One parameter, three questions}{1 min}{Introduction \textperiodcentered{} the common thread}
+
+\begin{say}
+The whole homework turns around one equation: A equals A-bar times L to the lambda. A-bar is what a place intrinsically is --- its fundamental productivity. L to the lambda is what it gains from its own size.
+
+Why does it matter? \pause\ Because lambda decides how much a local gain --- a new plant, a subsidy, an infrastructure --- is \emph{amplified} by the workers it attracts. And it decides whether there is an efficiency case for subsidising density at all.
+
+The problem is measurement. In \textbf{Part A} we show that a cross-section fits every value of lambda equally well. So the answer must come from shocks that move people while fundamentals stay put. \textbf{Part B} uses the division of Germany, a shock to market access \emph{across} cities. \textbf{Part C} uses the Berlin Wall, a shock \emph{within} a city, to estimate lambda and to evaluate a metro line.
+\end{say}
+
+\idea{tutto ruota attorno a $\lambda$: conta per le politiche, ma una sezione trasversale non lo identifica; servono shock (Germania divisa, Muro di Berlino).}
+
+% ======================================================================
+\slide{Slide 3 --- Productivity now depends on size}{1 min 30 s}{Part A \textperiodcentered{} point (a)}
+
+\begin{say}
+Part A, point (a). We take the Armington model of Topic 6 and add a production spillover: A-i equals A-bar-i times L-i to the lambda. Nothing else changes.
+
+Each location produces one variety with labour only. So the price of i's good delivered to n is tau-n-i times w-i, divided by A-bar-i L-i to the lambda.
+
+Three equations. \pause\ The \textbf{price index}: P-n to the one minus sigma is the sum over suppliers of phi-n-i times w-i over A-bar-i L-i to the lambda, all to the one minus sigma. The \textbf{trade shares}: each supplier's term divided by the price index --- the gravity equation, cheaper and closer suppliers sell more. The \textbf{trade balance}: the wage bill of i equals its sales to all destinations, w-i L-i equals the sum over n of pi-n-i w-n L-n. Rents are redistributed to residents and spent on land, so spending on goods is w-n L-n.
+
+The key observation is in the box at the bottom. \pause\ A-bar and lambda \emph{never appear separately}: only in the product A-bar L to the lambda, which is A. Rents, utility and the Fréchet mobility shares contain no productivity. So two parametrisations with the same A in every location are the \textbf{same economy}.
+\end{say}
+
+\begin{nums}
+$A_i = \bar A_i L_i^\lambda$ \quad$\cdot$\quad $X_n = w_n L_n$ (rents redistributed) \quad$\cdot$\quad $\bar A$ and $\lambda$ enter only through $A$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Where does L appear in the trade balance?'' --- Twice: as the labour force, $w_iL_i$, and inside productivity, with exponent $\lambda(\sigma-1)$ in the trade share. That is what makes the spillover an agglomeration force.
+\end{ask}
+\idea{con lo spillover cambiano solo le produttività; $\bar A$ e $\lambda$ compaiono sempre insieme nel prodotto $A$.}
+
+% ======================================================================
+\slide{Slide 4 --- The data identify A, not its split}{1 min 30 s}{Part A \textperiodcentered{} point (a), identification}
+
+\begin{say}
+What does the inversion recover? Given population, wages, the trade costs and sigma, the trade balance is N equations in N unknowns, the ratios w over A. A fixed point solves it, and gives A \textbf{exactly}, up to a common scale. \pause\ This step uses L and w as data and \emph{never uses lambda}. In the code it is \texttt{inv.Aeff}.
+
+To get the fundamental we need lambda: A-bar equals A times L to the minus lambda. That is \texttt{inv.A}, and it changes with lambda.
+
+And every lambda fits equally well. Take any lambda-prime and define A-bar of lambda-prime as A times L to the minus lambda-prime. Then A-bar times L to the lambda-prime is A again, in every location. Prices, shares, the trade balance: all identical, and the data are reproduced exactly. \pause\ N equations pin down N composites --- not N fundamentals \emph{plus} lambda.
+
+So: is a city productive because of \emph{where} it is, or because it is \emph{big}? One cross-section cannot tell. It is the same logic as Part C of Homework 1.
+
+But lambda does not change the fit, and it does change every counterfactual: after a shock workers move, and with lambda positive productivity moves with them. That is point (c).
+\end{say}
+
+\begin{ask}
+\textbf{If asked:} ``Why up to a scale?'' --- Trade shares depend only on ratios of $w/A$; multiplying all $A$ by a constant changes nothing real. The code fixes it with a geometric-mean normalisation.
+\end{ask}
+\idea{l'inversione dà $A$ esatto senza usare $\lambda$; per $\bar A$ serve $\lambda$, e ogni $\lambda$ riproduce i dati.}
+
+% ======================================================================
+\slide{Slide 5 --- Same data, three values of lambda}{1 min 30 s}{Part A \textperiodcentered{} point (b)}
+
+\begin{say}
+Point (b), in numbers. In ARM1 we added a section after act 6. The data are the baseline equilibrium of act 5, generated with lambda equal to zero.
+
+Look at the code. We loop over three values, zero, 0.07 and 0.25. The important line is the comment: \pause\ lambda is changed \emph{only in a copy} of the parameters, p equals par. If we changed it at the top of the script, we would change the data themselves. Then we call \texttt{arm\_invert} with p, and record two things: the error of \texttt{inv.Aeff} against the true productivity, and the standard deviation of log A-bar.
+
+The table. The error is \textbf{1.17 times ten to the minus twelve} in all three rows --- machine precision --- and even the number of iterations is the same, 4346. Why? Because lambda enters \texttt{arm\_invert} only \emph{after} the loop, in A equals Aeff divided by L to the lambda. Same composite, same error. That is point (a) in numbers.
+
+The fundamentals instead change: the dispersion of log A-bar falls from \textbf{0.303 to 0.272 to 0.204}. \pause\ The formula on the right explains it: the variance of log A-bar is the variance of log A, minus two lambda times the covariance with log L, plus lambda squared times the variance of log L. Productive places are big --- the correlation is 0.814 --- so a larger lambda credits more productivity to size, and fundamentals look more alike. The variance keeps falling as long as lambda is below 0.43, the OLS slope of log A on log L.
+
+Same data, same fit, different story about where productivity comes from.
+\end{say}
+
+\begin{nums}
+Error $1.17\times10^{-12}$ for all $\lambda$ \quad$\cdot$\quad 4346 iterations \quad$\cdot$\quad sd$(\log\bar A)$: 0.3033, 0.2715, 0.2041 \quad$\cdot$\quad corr$(\log A,\log L) = 0.814$ \quad$\cdot$\quad turning point $\lambda = 0.43$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Does the formula really reproduce the table?'' --- Yes: with sd$(\log A) = 0.3033$, sd$(\log L) = 0.575$ and correlation 0.814 it gives 0.2715 and 0.2041.
+\end{ask}
+\idea{stesso errore per ogni $\lambda$ perché $\lambda$ entra solo dopo il punto fisso; la dispersione di $\bar A$ cala perché più $\lambda$ attribuisce produttività alla dimensione.}
+
+% ======================================================================
+\slide{Slide 6 --- The same shock attracts far more people}{1 min 15 s}{Part A \textperiodcentered{} point (c)}
+
+\begin{say}
+Point (c). We repeat act 5: the same fundamentals and the same \textbf{plus 20 percent} shock to A-bar in location 8, the middle of the line, for the three values of lambda.
+
+In the code the key is that p goes into \emph{both} calls to \texttt{arm\_solve}: the baseline and the shocked economy. The baseline also changes with lambda, because A equals A-bar L to the lambda.
+
+The table. \pause\ The population of the shocked location grows by \textbf{26.9 percent} with lambda zero, \textbf{30.3} with 0.07, and \textbf{45.3} with 0.25. An amplification of 1.13 and 1.68. With lambda zero we recover act 5 exactly.
+
+And there is an exact check, the formula on the right: one plus the change in A-j equals 1.20 times one plus the change in L-j, to the lambda. At 0.25: 1.20 times 1.4528 to the 0.25 is 1.317 --- the plus 31.7 in the table. \pause\ So the shock to the fundamental is always 20 percent, but the productivity the economy actually sees is not.
+\end{say}
+
+\begin{nums}
+$\Delta L_8$: $+26.91\%$, $+30.34\%$, $+45.28\%$ \quad$\cdot$\quad ratio 1.00, 1.13, 1.68 \quad$\cdot$\quad $\Delta A_8$: $+20.00\%$, $+22.25\%$, $+31.74\%$.
+\end{nums}
+\idea{lo stesso shock del 20\% attira il 27\% di persone in più senza spillover e il 45\% con $\lambda = 0.25$.}
+
+% ======================================================================
+\slide{Slide 7 --- Workers bring productivity with them}{1 min 15 s}{Part A \textperiodcentered{} point (c), mechanism}
+
+\begin{say}
+Why does the response grow with lambda? Follow the loop on the right.
+
+The real wage rises in j, so workers migrate there --- that is the \textbf{labour market}. With lambda positive they bring productivity with them: A-j rises. Then the \textbf{goods market}: higher productivity makes j's good cheaper everywhere, its sales and wages rise, utility rises further, and more workers come.
+
+The neighbours face two forces. \pause\ Migration pulls workers toward j; but they buy a lot of j's good, which is now cheaper, so their price index falls. With lambda positive the second force is stronger: the right neighbour goes from \textbf{minus 0.28} to \textbf{plus 2.46 percent}. Far from j only the migration pull remains: about minus 1.8 percent at lambda zero, minus 2.4 at 0.25.
+
+So the spillover makes the shock larger and more concentrated in space. \pause\ And since all three lambdas fit the same data, the policy answer --- 27 or 45 percent --- depends on a parameter the cross-section cannot identify.
+\end{say}
+
+\begin{ask}
+\textbf{If asked:} ``Why do the two neighbours differ?'' --- Their own fundamentals are drawn at random, so they start from different sizes and trade shares with $j$.
+\end{ask}
+\idea{i lavoratori portano produttività; i vicini perdono per la migrazione ma guadagnano dal bene più economico di $j$.}
+
+% ======================================================================
+\slide{Slide 8 --- Helpman in disguise}{1 min 15 s}{Part A \textperiodcentered{} point (d)}
+
+\begin{say}
+Point (d), Helpman 1998, in steps.
+
+In Helpman each location produces many varieties. Free entry makes their number proportional to population, n-i equals kappa L-i, and each sells at a constant markup over marginal cost.
+
+Step one: the contribution of i to the price index of n is n-i times the price to the one minus sigma --- that is \textbf{L-i to the power one}, times a term without L. Step two: in Armington with the spillover the contribution is \textbf{L-i to the lambda times sigma minus one}, times a term without L.
+
+Step three: \pause\ the two coincide when lambda times sigma minus one equals one. So \textbf{lambda equals one over sigma minus one}: 0.25 at sigma 5, the value in ARM1; one third at sigma 4, the value in ARM2 and in Redding and Sturm. Keep this one third in mind for Part B.
+
+Step four: an estimated lambda need not be a technological externality, like knowledge spillovers. It can be the \emph{variety gains} of monopolistic competition: more people, more firms, more varieties, a lower price index. Same equations, different story.
+\end{say}
+
+\begin{nums}
+$\lambda(\sigma-1) = 1 \Rightarrow \lambda = 1/(\sigma-1)$ \quad$\cdot$\quad $\sigma=5$: $0.25$ \quad$\cdot$\quad $\sigma = 4$: $1/3$.
+\end{nums}
+\idea{un $\lambda = 1/(\sigma-1)$ è equivalente a Helpman: l'effetto può essere varietà, non tecnologia.}
+
+% ======================================================================
+\slide{Slide 9 --- What would identify lambda?}{1 min}{Part A \textperiodcentered{} point (e)}
+
+\begin{say}
+Point (e). If one cross-section cannot identify lambda, because the fundamentals adjust to rationalise any value, we need \textbf{variation over time}: a panel.
+
+What must change? Population, for reasons unrelated to productivity: a border that closes, a country divided, a new infrastructure. What must stay fixed? The fundamentals: the shock must move people without changing what each place intrinsically is.
+
+Then we invert the model at both dates. \pause\ With A-bar fixed, the change in log A is lambda times the change in log L. That relation identifies lambda.
+
+And this is exactly what the next two parts do.
+\end{say}
+
+\idea{serve uno shock che sposti la popolazione lasciando fermi i fondamentali; invertendo prima e dopo si stima $\lambda$.}
+
+% ======================================================================
+\slide{Slide 10 --- A fake border finds nothing}{1 min 30 s}{Part B \textperiodcentered{} point (a)}
+
+\begin{say}
+Part B: Redding and Sturm. After the division of Germany, West German cities within 75 kilometres of the new border lost population relative to the rest of the West. The figure is their design: treatment and control have the same trend until 1949, and diverge after.
+
+Point (a) is a placebo. We draw a \textbf{fake border} on the meridian 7.5 degrees East. In the code: \texttt{dmer} is each city's distance from the meridian in kilometres; \texttt{samp} is the West without the 20 real border cities; \texttt{pl\_t} and \texttt{pl\_c} are the placebo treated --- the 58 cities within 75 km, mostly the Rhine--Ruhr --- and the 41 controls; \texttt{did\_pl} is the difference-in-differences of annual growth, post-war minus pre-war, as in act 0.
+
+The result. \pause\ The placebo is \textbf{minus 0.064} percentage points per year, t equal to minus 0.28, p equal to 0.78. The actual border gives \textbf{minus 0.688}, t equal to minus 3.9 --- or minus 0.75 in Redding and Sturm's specification. The placebo is less than one tenth of the real effect, and statistically zero.
+\end{say}
+
+\begin{nums}
+Placebo $-0.064$ pp/yr ($t=-0.28$, $p=0.78$) \quad$\cdot$\quad actual $-0.688$ ($t=-3.90$); RS $-0.75$ \quad$\cdot$\quad 58 treated, 41 control, 194 km from the border.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Why drop the 20 border cities?'' --- Otherwise the real treatment contaminates the placebo control group.
+\end{ask}
+\idea{un confine finto sul meridiano 7.5°E non trova nulla: l'effetto è specifico del confine vero.}
+
+% ======================================================================
+\slide{Slide 11 --- The null placebo supports the market-access reading}{1 min}{Part B \textperiodcentered{} point (a), interpretation}
+
+\begin{say}
+What would a large negative placebo have meant? Redding and Sturm's argument is that the border is an exogenous shock to market access: without it, border cities and the rest of the West would have developed alike.
+
+A large negative estimate along an arbitrary line would say that western regions were \emph{already} on different paths, or hit by other shocks --- bombing, the decline of the Ruhr, where refugees settled. \pause\ Parallel trends would fail, and the minus 0.75 could not be read as the effect of lost market access. Our placebo is zero, so the loss is specific to the border.
+
+The optional part: the same placebo \emph{in the model}. Using the simulated division of act 2, \texttt{mod\_pa}, for the same groups, the model gives \textbf{plus 0.052}. Why positive? The meridian strip is the part of the West farthest from the border: its exposure to the East is lower, 0.085 against 0.122, so it loses less and grows relative to the rest. The size is about half of the model's own treatment effect, minus 0.112, with the opposite sign.
+\end{say}
+
+\idea{un placebo grande avrebbe smentito i trend paralleli; nel modello il placebo è leggermente positivo perché la fascia del meridiano è lontana dall'Est.}
+
+% ======================================================================
+\slide{Slide 12 --- Sealing the border deletes the eastern terms}{1 min 15 s}{Part B \textperiodcentered{} point (b), algebra}
+
+\begin{say}
+Point (b): exposure. The price index is the sum over suppliers of phi-n-i times w-i over A-i, to the one minus sigma. By the definition of the trade share, each term is pi-n-i times the price index. So the eastern terms add up to \textbf{s-E-n} times the price index, where s-E-n is the share of n's spending on eastern cities.
+
+Sealing the border sets phi to zero for those suppliers. At given wages, the new price index to the one minus sigma is just the western terms: one minus s-E times the old one. \pause\ So the price index rises by the factor one minus s-E, to the minus one over sigma minus one.
+
+The bound. Shares sum to one, and the western shares include the home share. So s-E equals one minus the western shares, which is at most \textbf{one minus pi-n-n}. Equality only if n buys nothing from other western cities.
+
+The intuition: a city that buys mostly at home cannot be very exposed. A city that buys a lot elsewhere \emph{can} be --- if that elsewhere is the East.
+\end{say}
+
+\begin{nums}
+$P'_n/P_n = (1-s^E_n)^{-1/(\sigma-1)}$ \quad$\cdot$\quad $s^E_n \le 1-\pi_{nn}$.
+\end{nums}
+\idea{chiudere il confine elimina i termini orientali dell'indice dei prezzi; l'esposizione è al massimo uno meno la quota interna.}
+
+% ======================================================================
+\slide{Slide 13 --- Exposure ranks the losers almost perfectly}{1 min 15 s}{Part B \textperiodcentered{} point (b), in the model}
+
+\begin{say}
+Now in the model, at the 1939 equilibrium. The code: \texttt{sE} sums the trade shares of each western city over the eastern columns; \texttt{pnn} is the home share; then we correlate both with the simulated population change.
+
+The bound holds in all 119 West cities. Mean exposure is 0.113: \textbf{0.176} for the treated border cities, 0.100 for the control. At given wages the price index rises by 6.5 percent in treated cities against 3.5.
+
+The left panel: \pause\ the correlation between exposure and the simulated change is \textbf{minus 0.998}. Exposure ranks the losers almost perfectly; general equilibrium rescales the shock but keeps the order.
+
+The home share works only among the treated: plus 0.854, because those 20 cities are at a similar distance from the border, so a low home share means trading with the East. Across all 119 it drops to 0.213: in the Rhineland a low home share means trade with other western cities, which the border does not touch.
+
+The link to act 3: small cities buy less at home, 0.37 against 0.54, so they are more exposed and lose more: minus 0.140 against minus 0.067 in the model, minus 1.12 against minus 0.37 in the data.
+\end{say}
+
+\begin{nums}
+corr$(s^E,\Delta)$ $=-0.998$ \quad$\cdot$\quad corr$(\pi_{nn},\Delta)$: $+0.854$ (20 treated), $+0.213$ (119) \quad$\cdot$\quad mean $s^E$: 0.176 vs 0.100 \quad$\cdot$\quad corr with data $-0.079$.
+\end{nums}
+\idea{nel modello l'esposizione all'Est ordina quasi perfettamente chi perde; la quota interna funziona solo tra le città di confine.}
+
+% ======================================================================
+\slide{Slide 14 --- The dials change the size, not the ranking}{1 min 15 s}{Part B \textperiodcentered{} point (c)}
+
+\begin{say}
+Point (c), optional. At the baseline, the first row, the model gives \textbf{minus 0.11} percentage points per year against \textbf{minus 0.75} in the data, and a correlation of only \textbf{0.08} across cities. The first number is about the \emph{size}; the second about the \emph{ranking}.
+
+For the size, the model can accommodate a stronger response: more mobility, epsilon; more agglomeration, lambda; steeper distance decay; lower sigma. It cannot accommodate channels that are not market access: border cities losing their role as hubs or administrative centres, firms moving west, war damage and refugees.
+
+For the ranking, it can accommodate unequal fundamentals and real transport networks, but not census noise and city-specific shocks: the cross-city spread of growth is 1.09 in the data against 0.07 in the model.
+
+The highlighted row is act 5: \pause\ epsilon 100 and lambda one third. The effect goes from minus 0.11 to \textbf{minus 0.34}, but the correlation with the data stays at \textbf{0.079}. The row below is Redding and Sturm's own simulation, which has epsilon \emph{equal to infinity} and lambda one third. The parameters scale the response; they do not change who loses.
+\end{say}
+
+\begin{nums}
+Baseline $-0.112$, corr 0.076 \quad$\cdot$\quad act 5 ($\varepsilon=100$, $\lambda=1/3$) $-0.342$, corr 0.079 \quad$\cdot$\quad RS ($\varepsilon=\infty$) $-0.362$ \quad$\cdot$\quad data $-0.746$; sd 1.09 vs 0.07.
+\end{nums}
+\idea{i parametri cambiano la dimensione dell'effetto ma non l'ordinamento delle città, che resta poco correlato con i dati.}
+
+% ======================================================================
+\slide{Slide 15 --- Two models agreeing, not a model fitting the data}{1 min 15 s}{Part B \textperiodcentered{} point (d)}
+
+\begin{say}
+Point (d). In act 5, epsilon 100 and lambda one third give \textbf{minus 0.34}, against \textbf{minus 0.36} in Redding and Sturm's simulation. Which assumption on agglomeration is implicit in their model?
+
+Go back to point (d) of Part A. \pause\ Helpman's free entry makes varieties grow with city size: an agglomeration force of exactly one over sigma minus one --- one third at sigma 4. That is why no lambda appears in their paper: it is not a free parameter, it is fixed by monopolistic competition and sigma. Our model makes it an explicit dial.
+
+The code recalibrates and re-solves the division with those parameters, \texttt{p3}, and correlates the result with the data and with their simulation. City by city, the correlation with Redding and Sturm is \textbf{0.99997}. Raising epsilon to 300 and 1000 gives minus 0.354 and minus 0.359, converging to their minus 0.362.
+
+So is this evidence about the data? \pause\ No: it is evidence that the two models are \emph{the same system}. Both under-predict the data, minus 0.36 against minus 0.75, and both have the same low correlation with city growth, about 0.08.
+\end{say}
+
+\begin{ask}
+\textbf{If asked:} ``Why does $\varepsilon$ have to be large?'' --- Redding and Sturm assume perfect mobility, utility equalised everywhere; in the Fréchet model that is the limit $\varepsilon\to\infty$.
+\end{ask}
+\idea{RS assume implicitamente $\lambda = 1/3$ (Helpman); l'accordo tra i due modelli dice che sono lo stesso sistema, non che spiegano i dati.}
+
+% ======================================================================
+\slide{Slide 16 --- OLS finds agglomeration even where there is none}{1 min 30 s}{Part C \textperiodcentered{} point (a)}
+
+\begin{say}
+Part C: the Berlin Wall, Ahlfeldt, Redding, Sturm and Wolf. Point (a). We ran ARSW0 as it is. It simulates a city where the true lambda is \textbf{0.07}, and regresses log productivity on log surrounding employment density.
+
+The table. With random fundamentals, OLS gives \textbf{0.181} on average over 20 draws. When fundamentals favour the centre, \textbf{0.193}. In both panels the red OLS line is much steeper than the dashed true slope.
+
+Why? The formula below the table. \pause\ The fundamental a-j is unobserved, so it sits in the error term, and it is correlated with density. In case (a) this is \textbf{simultaneity}, or sorting: even with random fundamentals, productive blocks attract jobs, so density follows a-j. In case (b) there is also an \textbf{omitted variable}: the centre is both denser and intrinsically better. The covariance is positive, so lambda-hat is biased upward.
+
+Policy. A government doubling density expects two to the 0.07 minus one, about \textbf{5 percent}, with the true value --- but \textbf{13.4 percent} with OLS. \pause\ And in case (c), a city with \emph{no} spillover at all, OLS still reports 0.170. The regression cannot tell this city from one with real spillovers, so a government would subsidise concentration where there is no market failure to correct.
+\end{say}
+
+\begin{nums}
+True $\lambda = 0.07$ \quad$\cdot$\quad OLS: 0.181 (0.153--0.219), 0.193 (0.183--0.202), 0.170 when $\lambda=0$ \quad$\cdot$\quad doubling density: $4.96\%$ vs $13.37\%$.
+\end{nums}
+\idea{l'OLS sovrastima $\lambda$ perché la densità è correlata ai fondamentali; trova 0.17 anche in una città senza spillover.}
+
+% ======================================================================
+\slide{Slide 17 --- The division of the city recovers the true lambda}{1 min 30 s}{Part C \textperiodcentered{} point (b)}
+
+\begin{say}
+Point (b): act 5 of ARSW1, run as it is. The estimator uses the division of the city. For each candidate lambda, it inverts the model before and after the division, recovers the fundamentals, and computes the gradient of their change in distance to the old centre. \pause\ The estimate is the lambda at which that gradient is \textbf{zero}.
+
+The figure. With fundamentals unchanged, the blue line crosses zero exactly at \textbf{0.0700}, the true value. With random drift in fundamentals, five draws give 0.046, 0.070, 0.077, 0.071 and 0.091: mean \textbf{0.071}. No bias, only sampling noise.
+
+The identifying assumption: \pause\ the Wall changed what blocks could \emph{reach}, not what they \emph{are}. Changes in fundamentals are not systematically related to distance from the old centre. Then the only explanation for central blocks losing productivity is the loss of surrounding density.
+
+The moment at lambda zero is \textbf{plus 0.0232}: if we assume away agglomeration, the model must conclude that fundamentals near the centre got worse for no reason.
+
+Why do city governments need this and not OLS? Because OLS gives 0.17 even with no spillover, while this estimator uses an exogenous change in density and separates spillovers from sorting.
+\end{say}
+
+\begin{nums}
+$\hat\lambda = 0.0700$ \quad$\cdot$\quad with drift: 0.046, 0.070, 0.077, 0.071, 0.091 (mean 0.071, range 0.045) \quad$\cdot$\quad moment at $\lambda=0$: $+0.0232$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``When would the assumption fail?'' --- If something else hit the old centre at the same time as the Wall --- say, war damage or a policy concentrated there --- the fundamentals would change with distance and the estimate would be biased.
+\end{ask}
+\idea{con il Muro si sceglie il $\lambda$ per cui i fondamentali non cambiano con la distanza dal centro: si ritrova 0.07.}
+
+% ======================================================================
+\slide{Slide 18 --- A wrong lambda doubles the welfare gain}{1 min 45 s}{Part C \textperiodcentered{} point (c)}
+
+\begin{say}
+Point (c). Act 6 builds a metro line along the central row of the grid: trains at 3 minutes per kilometre, 2 minutes of waiting, and every commuting pair takes the faster of walking and the metro.
+
+Our only change to the code is \texttt{lambda\_policy}: we ran the act three times, with zero, 0.07 and 0.18. For each value the model recovers the fundamentals from the \emph{same} observed city, \texttt{arsw\_invert}, so the city before the line is identical in the three runs; only the prediction after the line differs.
+
+In the table, blue is an increase and red a decrease.
+
+\textbf{(i) Who gains.} 3,666 of the 14,641 commuting pairs get faster, saving a median of 3.1 minutes. Commuters and residents along the corridor gain, and in spatial equilibrium the gain is \emph{capitalised} in floor prices: they rise on the line, by 8 to 24 percent, and fall away from it.
+
+\textbf{(ii) Central jobs.} \pause\ With lambda zero, the metro only makes commuting cheaper: workers can live farther away, and central jobs \emph{fall} by 1.76 percent. With lambda 0.07, more workers reach the centre, density rises, and density raises productivity there: central jobs \emph{grow} by 2.96 percent. The sign flips.
+
+\textbf{(iii) The wrong lambda.} A government using the OLS value, 0.18, would predict a welfare gain of \textbf{3.01 percent} instead of \textbf{1.48}. \pause\ About twice as much: 1.53 percentage points that do not exist, and over-investment in infrastructure.
+\end{say}
+
+\begin{nums}
+Welfare $+1.06$ / $+1.48$ / $+3.01\%$ \quad$\cdot$\quad central jobs $-1.76$ / $+2.96$ / $+38.91\%$ \quad$\cdot$\quad prices on the line $+8.11$ / $+10.58$ / $+24.23\%$ \quad$\cdot$\quad ratio $3.01/1.48 \approx 2.03$.
+\end{nums}
+\begin{ask}
+\textbf{If asked:} ``Why do residents near the line fall with $\lambda = 0.18$?'' --- With a strong spillover the centre becomes so productive that land along the line is bid away for jobs: floor prices rise by 24\% and residents are pushed out ($-3.63\%$).
+\end{ask}
+\idea{la metro avvantaggia chi vive lungo la linea; con $\lambda$ sbagliato (0.18) il guadagno di benessere previsto raddoppia.}
+
+% ======================================================================
+\slide{Slide 19 --- 0.07 is a block-level number}{1 min}{Part C \textperiodcentered{} point (d)}
+
+\begin{say}
+Point (d), optional. Is 0.07 a good value for \texttt{par.lambda} in a regional model like ARM2? Same symbol, different object: in ARSW it is a spillover between blocks a few minutes apart; in ARM2, between cities hundreds of kilometres apart.
+
+\textbf{For:} it is a credible, well-identified benchmark; without a regional estimate it bounds the gains from above; and some channels --- thick labour markets, specialised suppliers --- reach beyond the city.
+
+\textbf{Against:} in ARSW the spillovers decay very fast with travel time and vanish within about a kilometre. Blocks interact face to face; regions through trade and transport. And estimates on regional data tend to be lower, around 0.02 to 0.04.
+
+What would we need? \pause\ How spillovers decay over long distances; estimates on regional data, such as NUTS regions or metropolitan areas; and explicit trade costs, to separate spillovers from the market access that ARM2 already captures through trade.
+
+Our conclusion: at the regional scale, 0.07 is at most an \textbf{upper bound}.
+\end{say}
+
+\idea{0.07 misura spillover tra isolati vicini; per un modello regionale è al massimo un limite superiore.}
+
+% ======================================================================
+\slide{Slide 20 --- Takeaways}{1 min}{Closing}
+
+\begin{say}
+To sum up.
+
+\textbf{First}, Part A: a cross-section identifies A, not lambda. The model recovers productivity exactly, but not how much comes from density. And lambda matters: the same shock moves 26.9 percent more people without spillovers, 45.3 percent with lambda 0.25.
+
+\textbf{Second}, Part B: shocks to market access move people. Exposure to the East ranks the losers of the division; mobility and agglomeration change the size of the effect, not the ranking. And Redding and Sturm's implicit lambda of one third is Helpman's one over sigma minus one.
+
+\textbf{Third}, Part C: \pause\ lambda needs a natural experiment. OLS gives 0.18 for a true 0.07; the Wall recovers 0.07; and with the wrong value the welfare gain of a metro doubles.
+
+Thank you for your attention. I am happy to take your questions.
+\end{say}
+
+\idea{tre messaggi: la sezione trasversale non identifica $\lambda$; gli shock di accesso al mercato spostano persone; per stimare $\lambda$ serve un esperimento naturale.}
+
+% ======================================================================
+\newpage
+\section{Appendix --- likely questions and short answers}
+
+\begin{ask}
+\begin{itemize}[leftmargin=12pt,itemsep=4pt,topsep=2pt]
+\item \textbf{What did you change in the code?} Part A: a section after act 6 of ARM1 (inversion with three $\lambda$) and act 5 repeated with \texttt{p} in place of \texttt{par}. Part B: blocks in ARM2 after acts 0, 2, 3 and 5 (placebo, model placebo, exposure, Helpman comparison). Part C: only \texttt{lambda\_policy} in act 6 of ARSW1; ARSW0 and act 5 were run as given.
+\item \textbf{Why change $\lambda$ only in a copy of \texttt{par}?} Changing it at the top would regenerate the data with a different $\lambda$; we want the \emph{same} data inverted with different assumptions.
+\item \textbf{Why is $\lambda$ not identified, but $A$ is?} $N$ equations (trade balance) for $N$ unknowns $w_i/A_i$. Splitting each $A_i$ into $\bar A_i$ and a common $\lambda$ adds one unknown with no new equation.
+\item \textbf{Is the spillover a technology or a variety effect?} The model cannot say: with $\lambda = 1/(\sigma-1)$ Armington and Helpman give identical price indices.
+\item \textbf{Why is the placebo positive in the model?} The meridian strip is far from the border, so less exposed ($s^E$ 0.085 vs 0.122): it loses less than the control.
+\item \textbf{Why does the home share fail across all 119 cities?} A low $\pi_{nn}$ can mean trade with the East (exposed) or with other western cities (not exposed); only among border cities does it mean the first.
+\item \textbf{Why does the model correlate so little with the data (0.08)?} The data contain city-specific shocks and noise (sd 1.09 pp/yr vs 0.07 in the model); the model has only market access.
+\item \textbf{What is the bias in naive OLS?} $\mathrm{plim}\,\hat\lambda = \lambda + \mathrm{cov}(\log\Upsilon,\log a)/\mathrm{var}(\log\Upsilon)$: positive because density follows fundamentals (sorting) and the centre is better (omitted variable).
+\item \textbf{Why does the Wall-based estimator work with drifting fundamentals?} The drift is random, unrelated to distance from the centre, so it adds noise but no bias: mean 0.071.
+\item \textbf{Why do central jobs fall with $\lambda = 0$?} Cheaper commuting lets workers live farther away; without a spillover nothing keeps firms concentrated.
+\item \textbf{Where does 0.02--0.04 come from?} It is the order of magnitude of density elasticities estimated on regional data in the literature, reported in our report; we use it only to argue that 0.07 is an upper bound at that scale.
+\end{itemize}
+\end{ask}
+
+\end{document}
