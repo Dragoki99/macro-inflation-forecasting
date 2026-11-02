@@ -329,40 +329,43 @@ So is this evidence about the data? \pause\ No: it is evidence that the two mode
 \idea{RS assume implicitamente $\lambda = 1/3$ (Helpman); l'accordo tra i due modelli dice che sono lo stesso sistema, non che spiegano i dati.}
 
 % ======================================================================
-\slide{Slide 16 --- OLS finds agglomeration even where there is none}{1 min 30 s}{Part C \textperiodcentered{} point (a)}
+\slide{Slide 16 --- OLS finds three times the true lambda, even where there is none}{1 min 30 s}{Part C \textperiodcentered{} point (a)}
 
 \begin{say}
 Part C: the Berlin Wall, Ahlfeldt, Redding, Sturm and Wolf. Point (a). We ran ARSW0 as it is. It simulates a city where the true lambda is \textbf{0.07}, and regresses log productivity on log surrounding employment density.
 
-The table. With random fundamentals, OLS gives \textbf{0.181} on average over 20 draws. When fundamentals favour the centre, \textbf{0.193}. In both panels the red OLS line is much steeper than the dashed true slope.
+The table. With random fundamentals, OLS gives \textbf{0.206} on average over 20 draws. When fundamentals favour the centre, \textbf{0.218}. \pause\ Both are about \emph{three times} the true value. In both panels the red OLS line is much steeper than the dashed true slope.
 
-Why? The formula below the table. \pause\ The fundamental a-j is unobserved, so it sits in the error term, and it is correlated with density. In case (a) this is \textbf{simultaneity}, or sorting: even with random fundamentals, productive blocks attract jobs, so density follows a-j. In case (b) there is also an \textbf{omitted variable}: the centre is both denser and intrinsically better. The covariance is positive, so lambda-hat is biased upward.
+Why? The formula below the table. Log productivity is log A-bar plus lambda log Upsilon, so the fundamental sits in the error term, and it is correlated with density. In case (a) fundamentals are unrelated to location, so the bias is pure \textbf{reverse causality}: blocks with a high fundamental attract workers, which raises the density around them. Density responds to productivity instead of causing it. In case (b) there is also an \textbf{omitted variable}: the centre is both denser and intrinsically better. \pause\ But it adds only about 0.012: reverse causality drives most of the bias.
 
-Policy. A government doubling density expects two to the 0.07 minus one, about \textbf{5 percent}, with the true value --- but \textbf{13.4 percent} with OLS. \pause\ And in case (c), a city with \emph{no} spillover at all, OLS still reports 0.170. The regression cannot tell this city from one with real spillovers, so a government would subsidise concentration where there is no market failure to correct.
+Policy. A government doubling density expects two to the 0.07 minus one, about \textbf{5 percent}, with the true value --- but \textbf{15.35 percent} with OLS, three times as much. \pause\ And in case (c), a city with \emph{no} spillover at all, OLS still reports 0.196, almost the same number. The government would expect a 14.6 percent gain and subsidise concentration where there is no market failure to correct.
 \end{say}
 
 \begin{nums}
-True $\lambda = 0.07$ \quad$\cdot$\quad OLS: 0.181 (0.153--0.219), 0.193 (0.183--0.202), 0.170 when $\lambda=0$ \quad$\cdot$\quad doubling density: $4.96\%$ vs $13.37\%$.
+True $\lambda = 0.07$ \quad$\cdot$\quad OLS: 0.206 (0.177--0.247), 0.218 (0.206--0.225), 0.196 when $\lambda=0$ \quad$\cdot$\quad doubling density: $4.97\%$ vs $15.35\%$ ($14.6\%$ in the $\lambda=0$ city).
 \end{nums}
-\idea{l'OLS sovrastima $\lambda$ perché la densità è correlata ai fondamentali; trova 0.17 anche in una città senza spillover.}
+\begin{ask}
+\textbf{If asked:} ``Why is there a bias in case (a), if fundamentals are random?'' --- Random in \emph{space}, not unrelated to density: a block with a good draw attracts workers, so the density around it rises. The covariance between density and the fundamental is positive even without any geography.
+\end{ask}
+\idea{l'OLS trova circa tre volte il vero $\lambda$ perché la densità risponde alla produttività; trova 0.20 anche in una città senza spillover.}
 
 % ======================================================================
 \slide{Slide 17 --- The division of the city recovers the true lambda}{1 min 30 s}{Part C \textperiodcentered{} point (b)}
 
 \begin{say}
-Point (b): act 5 of ARSW1, run as it is. The estimator uses the division of the city. For each candidate lambda, it inverts the model before and after the division, recovers the fundamentals, and computes the gradient of their change in distance to the old centre. \pause\ The estimate is the lambda at which that gradient is \textbf{zero}.
+Point (b): act 5 of ARSW2, the professor's updated script, run as it is. The estimator uses the division of the city. For each candidate lambda, it inverts the model before and after the Wall, recovers the fundamentals, and computes the gradient of their change in distance to the old centre, in the West. \pause\ The estimate is the lambda at which that gradient is \textbf{zero}.
 
-The figure. With fundamentals unchanged, the blue line crosses zero exactly at \textbf{0.0700}, the true value. With random drift in fundamentals, five draws give 0.046, 0.070, 0.077, 0.071 and 0.091: mean \textbf{0.071}. No bias, only sampling noise.
+The figure. With fundamentals unchanged, the blue line crosses zero exactly at \textbf{0.0700}, the true value. With random drift in fundamentals, five draws give 0.053, 0.070, 0.075, 0.071 and 0.087: mean \textbf{0.071}, range 0.034. Five draws are a suggestive check, not a formal proof, but they scatter around the true value.
 
-The identifying assumption: \pause\ the Wall changed what blocks could \emph{reach}, not what they \emph{are}. Changes in fundamentals are not systematically related to distance from the old centre. Then the only explanation for central blocks losing productivity is the loss of surrounding density.
+The identifying assumption: \pause\ the Wall changed what blocks could \emph{reach}, not what they \emph{are}. The change in fundamentals is uncorrelated with distance from the old centre. Then any systematic change in recovered productivity with distance must come from the loss of surrounding density.
 
-The moment at lambda zero is \textbf{plus 0.0232}: if we assume away agglomeration, the model must conclude that fundamentals near the centre got worse for no reason.
+The moment at lambda zero is \textbf{plus 0.0204}: if we assume away agglomeration, the model reads the lost spillovers as a fall in fundamental productivity near the centre, for no reason.
 
-Why do city governments need this and not OLS? Because OLS gives 0.17 even with no spillover, while this estimator uses an exogenous change in density and separates spillovers from sorting.
+Why do city governments need this and not OLS? Because OLS gives about 0.20 \emph{whether the true lambda is 0.07 or zero}, while this estimator uses an exogenous shock that holds fundamentals fixed.
 \end{say}
 
 \begin{nums}
-$\hat\lambda = 0.0700$ \quad$\cdot$\quad with drift: 0.046, 0.070, 0.077, 0.071, 0.091 (mean 0.071, range 0.045) \quad$\cdot$\quad moment at $\lambda=0$: $+0.0232$.
+$\hat\lambda = 0.0700$ \quad$\cdot$\quad with drift: 0.053, 0.070, 0.075, 0.071, 0.087 (mean 0.071, range 0.034) \quad$\cdot$\quad moment at $\lambda=0$: $+0.0204$.
 \end{nums}
 \begin{ask}
 \textbf{If asked:} ``When would the assumption fail?'' --- If something else hit the old centre at the same time as the Wall --- say, war damage or a policy concentrated there --- the fundamentals would change with distance and the estimate would be biased.
@@ -370,46 +373,51 @@ $\hat\lambda = 0.0700$ \quad$\cdot$\quad with drift: 0.046, 0.070, 0.077, 0.071,
 \idea{con il Muro si sceglie il $\lambda$ per cui i fondamentali non cambiano con la distanza dal centro: si ritrova 0.07.}
 
 % ======================================================================
-\slide{Slide 18 --- A wrong lambda doubles the welfare gain}{1 min 45 s}{Part C \textperiodcentered{} point (c)}
+\slide{Slide 18 --- A wrong lambda overstates the welfare gain by 56\%}{1 min 45 s}{Part C \textperiodcentered{} point (c)}
 
 \begin{say}
-Point (c). Act 6 builds a metro line along the central row of the grid: trains at 3 minutes per kilometre, 2 minutes of waiting, and every commuting pair takes the faster of walking and the metro.
+Point (c). Act 6 of ARSW2 builds a metro line along the central row of the city: trains at 3 minutes per kilometre, 2 minutes of waiting, a walk to the station in your own column, and every commuting pair takes the faster of walking and the metro.
 
-Our only change to the code is \texttt{lambda\_policy}: we ran the act three times, with zero, 0.07 and 0.18. For each value the model recovers the fundamentals from the \emph{same} observed city, \texttt{arsw\_invert}, so the city before the line is identical in the three runs; only the prediction after the line differs.
+Our only change to the code is \texttt{lambda\_policy}: we ran the act three times, with zero, 0.07 and 0.18. For each value the model recovers the fundamentals from the \emph{same} observed city, so before the line the three cities are identical --- the check reproduces the data with zero error. Only the prediction after the line differs. One detail, in the footnote: at lambda zero only the \emph{production} spillover is removed; the residential externality, eta 0.15, stays on.
 
 In the table, blue is an increase and red a decrease.
 
-\textbf{(i) Who gains.} 3,666 of the 14,641 commuting pairs get faster, saving a median of 3.1 minutes. Commuters and residents along the corridor gain, and in spatial equilibrium the gain is \emph{capitalised} in floor prices: they rise on the line, by 8 to 24 percent, and fall away from it.
+\textbf{(i) Who gains.} 6,476 of the 20,449 commuting pairs get faster, about a third, saving a median of 4.4 minutes. Commuters along the corridor and owners of floor space near the line gain: in spatial equilibrium the saving is \emph{capitalised} in floor prices, which rise on the line, by 13 to 32 percent, and fall away from it.
 
-\textbf{(ii) Central jobs.} \pause\ With lambda zero, the metro only makes commuting cheaper: workers can live farther away, and central jobs \emph{fall} by 1.76 percent. With lambda 0.07, more workers reach the centre, density rises, and density raises productivity there: central jobs \emph{grow} by 2.96 percent. The sign flips.
+\textbf{(ii) Central jobs.} \pause\ With lambda zero, the metro only makes commuting cheaper: workers can live farther away, nothing anchors firms in the centre, and central jobs \emph{fall} by 3.85 percent. With lambda 0.07, more workers reach the centre, density rises, and density raises productivity there: central jobs \emph{grow} by 2.49 percent. The sign flips.
 
-\textbf{(iii) The wrong lambda.} A government using the OLS value, 0.18, would predict a welfare gain of \textbf{3.01 percent} instead of \textbf{1.48}. \pause\ About twice as much: 1.53 percentage points that do not exist, and over-investment in infrastructure.
+\textbf{(iii) The wrong lambda.} A government using the OLS value, 0.18, would predict a welfare gain of \textbf{2.60 percent} instead of \textbf{1.67}. \pause\ That is 1.56 times: a 56 percent overstatement, 0.93 percentage points. It would also predict an implausible jump of 52 percent in central jobs and a fall of 35 percent in residents near the line. And since the updated OLS estimate is actually 0.206, using 0.18 is a \emph{conservative} measure of the distortion.
 \end{say}
 
 \begin{nums}
-Welfare $+1.06$ / $+1.48$ / $+3.01\%$ \quad$\cdot$\quad central jobs $-1.76$ / $+2.96$ / $+38.91\%$ \quad$\cdot$\quad prices on the line $+8.11$ / $+10.58$ / $+24.23\%$ \quad$\cdot$\quad ratio $3.01/1.48 \approx 2.03$.
+Welfare $+1.37$ / $+1.67$ / $+2.60\%$ \quad$\cdot$\quad central jobs $-3.85$ / $+2.49$ / $+52.08\%$ \quad$\cdot$\quad prices on the line $+13.04$ / $+15.57$ / $+32.30\%$ \quad$\cdot$\quad residents near the line $+16.21$ / $+9.54$ / $-35.08\%$ \quad$\cdot$\quad ratio $2.60/1.67 \approx 1.56$.
 \end{nums}
 \begin{ask}
-\textbf{If asked:} ``Why do residents near the line fall with $\lambda = 0.18$?'' --- With a strong spillover the centre becomes so productive that land along the line is bid away for jobs: floor prices rise by 24\% and residents are pushed out ($-3.63\%$).
+\textbf{If asked:} ``Why do residents near the line fall by 35\% with $\lambda = 0.18$?'' --- The agglomeration feedback is so strong that firms crowd into the centre: commercial demand bids up floor prices along the line and, with fixed floor space, residents are pushed out.
 \end{ask}
-\idea{la metro avvantaggia chi vive lungo la linea; con $\lambda$ sbagliato (0.18) il guadagno di benessere previsto raddoppia.}
+\idea{la metro avvantaggia chi vive e possiede spazio lungo la linea; con il $\lambda$ dell'OLS il guadagno di benessere previsto è sovrastimato del 56\%.}
 
 % ======================================================================
-\slide{Slide 19 --- 0.07 is a block-level number}{1 min}{Part C \textperiodcentered{} point (d)}
+\slide{Slide 19 --- 0.07 is a block-level number}{1 min 15 s}{Part C \textperiodcentered{} point (d)}
 
 \begin{say}
-Point (d), optional. Is 0.07 a good value for \texttt{par.lambda} in a regional model like ARM2? Same symbol, different object: in ARSW it is a spillover between blocks a few minutes apart; in ARM2, between cities hundreds of kilometres apart.
+Point (d), optional. Is 0.07 a good value for \texttt{par.lambda} in a regional model like ARM2?
 
-\textbf{For:} it is a credible, well-identified benchmark; without a regional estimate it bounds the gains from above; and some channels --- thick labour markets, specialised suppliers --- reach beyond the city.
+Start from the banner. In ARSW the spillover decays with travel time, delta 0.36 per minute: it \textbf{halves every 1.9 minutes}, about 160 metres on foot. So it is negligible beyond a few hundred metres. ARM2 links cities hundreds of kilometres apart.
 
-\textbf{Against:} in ARSW the spillovers decay very fast with travel time and vanish within about a kilometre. Blocks interact face to face; regions through trade and transport. And estimates on regional data tend to be lower, around 0.02 to 0.04.
+\textbf{For:} 0.07 is a standard order of magnitude, and without regional estimates it gives an upper-bound scenario for policy. Some mechanisms --- thick labour markets, shared input suppliers --- reach beyond the city.
 
-What would we need? \pause\ How spillovers decay over long distances; estimates on regional data, such as NUTS regions or metropolitan areas; and explicit trade costs, to separate spillovers from the market access that ARM2 already captures through trade.
+\textbf{Against}, four arguments. \textbf{Decay}: lambda is inseparable from its decay rate. \textbf{Mechanisms}: blocks interact face to face, regions through freight and trade. \textbf{The model}: as we saw in Part B(d), in ARM2 a lambda of one over sigma minus one, 0.25 to 0.33, is a Helpman variety gain, a different object. \textbf{Evidence}: regional estimates, such as Rosenthal and Strange 2004 and Combes and Gobillon 2015, are lower, 0.02 to 0.05.
+
+What would we need? \pause\ A decay function for inter-regional distances; lambda estimated on regional data, NUTS-2 or NUTS-3; and measured trade costs, to separate spillovers from the market access that ARM2 already captures.
 
 Our conclusion: at the regional scale, 0.07 is at most an \textbf{upper bound}.
 \end{say}
 
-\idea{0.07 misura spillover tra isolati vicini; per un modello regionale è al massimo un limite superiore.}
+\begin{nums}
+$\delta = 0.36$/min \quad$\cdot$\quad half-life $\ln 2/0.36 \approx 1.9$ min $\approx 160$ m \quad$\cdot$\quad regional estimates 0.02--0.05 \quad$\cdot$\quad ARM2: $1/(\sigma-1) \approx 0.25$--$0.33$.
+\end{nums}
+\idea{0.07 misura spillover tra isolati a poche centinaia di metri; per un modello regionale è al massimo un limite superiore.}
 
 % ======================================================================
 \slide{Slide 20 --- Takeaways}{1 min}{Closing}
@@ -421,7 +429,7 @@ To sum up.
 
 \textbf{Second}, Part B: shocks to market access move people. Exposure to the East ranks the losers of the division; mobility and agglomeration change the size of the effect, not the ranking. And Redding and Sturm's implicit lambda of one third is Helpman's one over sigma minus one.
 
-\textbf{Third}, Part C: \pause\ lambda needs a natural experiment. OLS gives 0.18 for a true 0.07; the Wall recovers 0.07; and with the wrong value the welfare gain of a metro doubles.
+\textbf{Third}, Part C: \pause\ lambda needs a natural experiment. OLS gives about 0.21 for a true 0.07, and 0.20 even when there is no spillover; the Wall recovers 0.07; and with the OLS value the welfare gain of a metro is overstated by 56 percent.
 
 Thank you for your attention. I am happy to take your questions.
 \end{say}
@@ -434,17 +442,17 @@ Thank you for your attention. I am happy to take your questions.
 
 \begin{ask}
 \begin{itemize}[leftmargin=12pt,itemsep=4pt,topsep=2pt]
-\item \textbf{What did you change in the code?} Part A: a section after act 6 of ARM1 (inversion with three $\lambda$) and act 5 repeated with \texttt{p} in place of \texttt{par}. Part B: blocks in ARM2 after acts 0, 2, 3 and 5 (placebo, model placebo, exposure, Helpman comparison). Part C: only \texttt{lambda\_policy} in act 6 of ARSW1; ARSW0 and act 5 were run as given.
+\item \textbf{What did you change in the code?} Part A: a section after act 6 of ARM1 (inversion with three $\lambda$) and act 5 repeated with \texttt{p} in place of \texttt{par}. Part B: blocks in ARM2 after acts 0, 2, 3 and 5 (placebo, model placebo, exposure, Helpman comparison). Part C: only \texttt{lambda\_policy} in act 6 of ARSW2, the professor's updated script; ARSW0 and act 5 were run as given.
 \item \textbf{Why change $\lambda$ only in a copy of \texttt{par}?} Changing it at the top would regenerate the data with a different $\lambda$; we want the \emph{same} data inverted with different assumptions.
 \item \textbf{Why is $\lambda$ not identified, but $A$ is?} $N$ equations (trade balance) for $N$ unknowns $w_i/A_i$. Splitting each $A_i$ into $\bar A_i$ and a common $\lambda$ adds one unknown with no new equation.
 \item \textbf{Is the spillover a technology or a variety effect?} The model cannot say: with $\lambda = 1/(\sigma-1)$ Armington and Helpman give identical price indices.
 \item \textbf{Why is the placebo positive in the model?} The meridian strip is far from the border, so less exposed ($s^E$ 0.085 vs 0.122): it loses less than the control.
 \item \textbf{Why does the home share fail across all 119 cities?} A low $\pi_{nn}$ can mean trade with the East (exposed) or with other western cities (not exposed); only among border cities does it mean the first.
 \item \textbf{Why does the model correlate so little with the data (0.08)?} The data contain city-specific shocks and noise (sd 1.09 pp/yr vs 0.07 in the model); the model has only market access.
-\item \textbf{What is the bias in naive OLS?} $\mathrm{plim}\,\hat\lambda = \lambda + \mathrm{cov}(\log\Upsilon,\log a)/\mathrm{var}(\log\Upsilon)$: positive because density follows fundamentals (sorting) and the centre is better (omitted variable).
-\item \textbf{Why does the Wall-based estimator work with drifting fundamentals?} The drift is random, unrelated to distance from the centre, so it adds noise but no bias: mean 0.071.
+\item \textbf{What is the bias in naive OLS?} $\mathrm{plim}\,\hat\lambda = \lambda + \mathrm{cov}(\log\Upsilon,\log a)/\mathrm{var}(\log\Upsilon)$: positive because density follows fundamentals (reverse causality, most of the bias) and the centre is better (omitted variable, only $+0.012$).
+\item \textbf{Why does the Wall-based estimator work with drifting fundamentals?} The drift is random, unrelated to distance from the centre, so it adds noise but no bias: mean 0.071 over five draws.
 \item \textbf{Why do central jobs fall with $\lambda = 0$?} Cheaper commuting lets workers live farther away; without a spillover nothing keeps firms concentrated.
-\item \textbf{Where does 0.02--0.04 come from?} It is the order of magnitude of density elasticities estimated on regional data in the literature, reported in our report; we use it only to argue that 0.07 is an upper bound at that scale.
+\item \textbf{Where does 0.02--0.05 come from?} Estimates at the regional or metropolitan level, e.g.\ Rosenthal and Strange (2004), Combes and Gobillon (2015); we use them only to argue that 0.07 is an upper bound at that scale.
 \end{itemize}
 \end{ask}
 
