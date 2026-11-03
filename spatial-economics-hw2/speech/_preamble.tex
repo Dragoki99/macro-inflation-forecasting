@@ -1,0 +1,29 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\definecolor{unicablue}{RGB}{45,58,104}
+\definecolor{unicared}{RGB}{153,38,45}
+\definecolor{tint}{RGB}{228,231,240}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\linespread{1.15}
+\titleformat{\section}{\Large\bfseries\color{unicablue}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{12pt}{2pt}
+\newcommand{\slide}[2]{\Needspace{10\baselineskip}\section{#1}\textcolor{unicared}{\small\bfseries #2}\par}
+\newcommand{\cue}[1]{{\small\itshape\color{unicared}[#1]}}
+\newcommand{\pause}{\textcolor{unicared}{\,/\!/\,}}
+\newtcolorbox{say}{breakable,colback=white,colframe=unicablue,boxrule=0pt,leftrule=3pt,arc=0pt,
+  left=10pt,right=6pt,top=4pt,bottom=4pt,fontupper=\large,before upper={\setlength{\parskip}{8pt}}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{unicablue}Measuring Agglomeration --- \speechpart}
+\fancyhead[R]{\small\color{unicablue}4 November 2026}
+\fancyfoot[C]{\small\thepage}

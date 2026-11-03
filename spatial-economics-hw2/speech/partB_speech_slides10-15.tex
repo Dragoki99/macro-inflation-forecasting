@@ -1,0 +1,82 @@
+\newcommand{\speechpart}{Part B, slides 10--15}
+\input{_preamble}
+\begin{document}
+{\color{unicablue}\Huge\bfseries Speech: slides 10--15\par}
+\vspace{2pt}
+{\Large Part B --- the division of Germany (Redding and Sturm 2008)\par}
+\vspace{4pt}
+{\small About 7 minutes 30 seconds. \cue{red brackets} = what to point at or do; \pause\ = a short pause. If Part B is drawn, open with slides 1--2 (Part A speech, slides 1--7), then say: ``Let me go to Part B.''}
+
+\slide{Slide 10 --- A fake border on the 7.5°E meridian finds nothing}{about 1 min 30 s}
+\begin{say}
+\cue{figure} Part B: Redding and Sturm. After the division of Germany, the 20 West German cities within 75 kilometres of the new border --- the \textbf{treated} group --- lost population relative to the rest of the West, the control group. The figure is their design: the two groups share the same trend until 1949, and diverge after the division.
+
+Point (a) is a \textbf{placebo}: a falsification test. We apply the same difference-in-differences where there is no treatment, and it should find nothing.
+
+\cue{code} We draw a fake border on the meridian 7.5 degrees East. \texttt{dmer} is each city's distance from the meridian in kilometres. \texttt{samp} is the West \emph{without} the 20 real border cities: we drop them because otherwise their real decline would contaminate the placebo control group. Of the remaining 99 cities, \texttt{pl\_t} are the \textbf{58} within 75 km of the meridian, mostly the Rhine--Ruhr; \texttt{pl\_c} are the other \textbf{41}. \texttt{did\_pl} is the difference-in-differences of annual growth, post-war minus pre-war, as in act 0.
+
+\cue{the two numbers on the left} The result. \pause\ The placebo is \textbf{minus 0.064} percentage points per year, t equal to minus 0.28, p equal to 0.78. The actual border gives \textbf{minus 0.688}, t equal to minus 3.9 --- minus 0.75 in Redding and Sturm's specification. The placebo is less than one tenth of the real effect, and statistically zero.
+\end{say}
+
+\slide{Slide 11 --- The null placebo supports the market-access reading}{about 1 min}
+\begin{say}
+\cue{left card} What would a large negative placebo have meant? Redding and Sturm's identification rests on \textbf{parallel trends}: without the division, border cities and the rest of the West would have grown alike. A large negative estimate along an arbitrary line would say that western regions were already on different paths, or hit by other shocks: uneven bombing, the decline of the Ruhr, where refugees settled. \pause\ Then the minus 0.75 could not be read as the causal effect of lost market access. Our placebo is zero, so the loss is specific to the real border.
+
+\cue{right card} Optional: the same placebo in the model. We applied the same groups to the simulated division of act 2, \texttt{mod\_pa}, and the model gives \textbf{plus 0.052}. Why positive? The meridian strip is the part of the West farthest from the border: its exposure to the East is 0.085, against 0.122 for the control. So it loses \emph{less} market access than the control, and grows relative to it. The size is about half of the model's own treatment effect, minus 0.112, with the opposite sign.
+\end{say}
+
+\slide{Slide 12 --- Sealing the border deletes the eastern terms}{about 1 min 15 s}
+\begin{say}
+\cue{card 1} Point (b): exposure. The price index is a sum with one term per supplier. By the definition of the trade share, \textbf{each term is pi-n-i times the price index} to the one minus sigma: share times total. So the eastern terms add up to \textbf{s-E} times the total, where s-E is the share of the city's spending on the East.
+
+\cue{formula} Sealing the border sets phi to zero for eastern suppliers, so their terms disappear. At given wages, what remains is \textbf{one minus s-E} times the old sum. \pause\ So the price index rises by the factor one minus s-E, to the minus one over sigma minus one: the more a city bought from the East, the more its cost of living rises.
+
+\cue{card 2} The bound. Shares sum to one: home, plus other western cities, plus the East. So s-E equals one minus the home share minus the other western shares: it is at most \textbf{one minus pi-n-n}, with equality only if the city buys nothing from other western cities.
+
+\cue{``Intuition'' box} The intuition: a city that buys mostly at home cannot be very exposed. A city that buys a lot elsewhere can be --- but only if that elsewhere is the East.
+\end{say}
+
+\slide{Slide 13 --- Exposure to the East ranks the losers almost perfectly}{about 1 min 15 s}
+\begin{say}
+\cue{code} Now in the model, at the 1939 equilibrium. \texttt{sE} sums each western city's trade shares over the eastern columns; \texttt{pnn} is the home share; then we correlate both with the simulated population change. The bound holds in all 119 West cities. Mean exposure is \textbf{0.176} for the treated, \textbf{0.100} for the control.
+
+\cue{left panel, first row of the table} The correlation between exposure and the simulated change is \textbf{minus 0.998}. In the model the only shock is losing the East, so exposure ranks the losers almost perfectly; general equilibrium rescales the shock but keeps the order.
+
+\cue{rows 2 and 3} The home share is only an upper bound on exposure. Among the 20 treated cities it works, \textbf{0.85}: they are all close to the border, so buying outside means buying from the East. Across all 119 it drops to \textbf{0.21}, \pause\ because in the Rhineland a low home share means trading with other \emph{western} cities, which the border does not touch.
+
+\cue{box ``Link to act 3''} The link to act 3: small cities buy less at home, 0.37 against 0.54, so they are more exposed and lose about twice as much: minus 0.140 against minus 0.067 in the model, minus 1.12 against minus 0.37 in the data.
+\end{say}
+
+\slide{Slide 14 --- The dials change the size of the effect, not the ranking}{about 1 min 15 s}
+\begin{say}
+\cue{first row of the table} Point (c), optional. At baseline the model gives \textbf{minus 0.11} percentage points per year against \textbf{minus 0.75} in the data, and a correlation of only \textbf{0.08} across cities. The first number is about the \textbf{size} of the effect, the second about the \textbf{ranking} of cities.
+
+\cue{left card, ``Size''} For the size, the model could give a stronger response with more mobility, epsilon, more agglomeration, lambda, steeper distance decay or lower sigma. It cannot capture channels that are not market access: border cities losing their role as hubs or administrative centres, firms moving west, war damage and refugees.
+
+\cue{right card, ``Ranking''} For the ranking, it could accommodate unequal fundamentals and real transport networks, but not census noise and city-specific shocks: the spread of growth is 1.09 in the data against 0.07 in the model.
+
+\cue{highlighted row} The highlighted row is act 5: epsilon 100 and lambda one third. \pause\ The effect goes from minus 0.11 to \textbf{minus 0.34}, but the correlation with the data stays at \textbf{0.079}. The row below is Redding and Sturm's own simulation, with epsilon equal to infinity. The parameters scale the response, like a volume knob; they do not change who loses.
+\end{say}
+
+\slide{Slide 15 --- Two models agreeing, not a model fitting the data}{about 1 min 15 s}
+\begin{say}
+\cue{navy box} Point (d). In act 5, epsilon 100 and lambda one third give \textbf{minus 0.342}, against \textbf{minus 0.362} in Redding and Sturm's simulation.
+
+\cue{first card} Which assumption on agglomeration is implicit in their model? \pause\ Their model is Helpman: free entry makes the number of varieties proportional to population, so bigger cities offer more varieties and a lower price index. By Part A(d), that is an agglomeration force equivalent to a spillover of \textbf{one over sigma minus one}: one third at sigma equal to 4. And epsilon must be large because they assume perfect mobility, the limit of epsilon to infinity.
+
+\cue{second card} Why no lambda in their paper? Because it is not a free parameter: monopolistic competition and sigma pin it down. Our model makes the same force an explicit dial.
+
+\cue{code, then third card} The code recalibrates and re-solves the division with those parameters, \texttt{p3}, and correlates the result with the data and with their simulation. City by city, the correlation with Redding and Sturm is \textbf{0.99997}; with epsilon 300 and 1000 we get minus 0.354 and minus 0.359, converging to their minus 0.362.
+
+\cue{look at the Professor} So is this evidence about the data? No: it is evidence that the two models are \textbf{the same system}. Both under-predict the data, minus 0.36 against minus 0.75, and both have the same low correlation with city growth, about 0.08.
+
+\cue{hand over} My colleague will now present Part C.
+\end{say}
+
+\vspace{6pt}
+\begin{tcolorbox}[colback=tint,colframe=tint,arc=0pt]
+\small\textbf{Numbers to remember.} Placebo $-0.064$ ($t=-0.28$, $p=0.78$) vs actual $-0.688$ (RS $-0.75$); 58 vs 41 cities \ $\cdot$\ model placebo $+0.052$; $s^E$ 0.085 vs 0.122 \ $\cdot$\ corr$(s^E,\Delta) = -0.998$; $\pi_{nn}$: 0.85 (20 treated), 0.21 (119) \ $\cdot$\ $s^E$ 0.176 vs 0.100 \ $\cdot$\ baseline $-0.112$, corr 0.08; act 5 $-0.342$, corr 0.079; RS $-0.362$; data $-0.746$ \ $\cdot$\ corr with RS 0.99997.
+
+\textbf{Words to get right.} the 20 border cities are the \emph{treated}, not the control \ $\cdot$\ the placebo strip loses \emph{less} access \ $\cdot$\ each term = share $\times$ total \ $\cdot$\ \emph{one over sigma minus one} \ $\cdot$\ evidence about the \emph{models}, not the data.
+\end{tcolorbox}
+\end{document}
