@@ -1,0 +1,126 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\definecolor{unicablue}{RGB}{45,58,104}
+\definecolor{unicared}{RGB}{153,38,45}
+\definecolor{tint}{RGB}{228,231,240}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\linespread{1.15}
+\titleformat{\section}{\Large\bfseries\color{unicablue}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{12pt}{2pt}
+\newcommand{\slide}[2]{\Needspace{10\baselineskip}\section{#1}\textcolor{unicared}{\small\bfseries #2}\par}
+\newcommand{\cue}[1]{{\small\itshape\color{unicared}[#1]}}
+\newcommand{\pause}{\textcolor{unicared}{\,/\!/\,}}
+\newtcolorbox{say}{breakable,colback=white,colframe=unicablue,boxrule=0pt,leftrule=3pt,arc=0pt,
+  left=10pt,right=6pt,top=4pt,bottom=4pt,fontupper=\large,before upper={\setlength{\parskip}{8pt}}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{unicablue}Measuring Agglomeration --- Part A, slides 1--7}
+\fancyhead[R]{\small\color{unicablue}4 November 2026}
+\fancyfoot[C]{\small\thepage}
+\begin{document}
+{\color{unicablue}\Huge\bfseries Speech: slides 1--7\par}
+\vspace{2pt}
+{\Large Introduction and Part A, points (a)--(c)\par}
+\vspace{4pt}
+{\small About 8 minutes. \cue{red brackets} = what to point at or do; \pause\ = a short pause. Learn the logic, not the words; the numbers are the only thing to memorise.}
+
+\slide{Slide 1 --- Title}{about 20 s}
+\begin{say}
+Good morning, Professor. We are Davide Maiellaro, Caterina Congia, Federica Stella Favalli and Lorenzo Piva. Homework 2 is about one parameter, the productivity spillover \textbf{lambda}: how much a location's productivity rises when more people work there.
+\end{say}
+
+\slide{Slide 2 --- One parameter, three questions}{about 1 min}
+\begin{say}
+\cue{blue block} The whole homework turns around one equation: A equals A-bar times L to the lambda. A-bar is what a place intrinsically is, its fundamental productivity. L to the lambda is what it gains from its own size, and lambda says how much size matters.
+
+Why does it matter? Because lambda decides how much a local gain --- a new plant, a subsidy, an infrastructure --- is \textbf{amplified} by the workers it attracts. And it decides whether subsidising density is efficient at all: with lambda equal to zero, there is no external effect to correct.
+
+\cue{red block, slow down} The problem is \textbf{measurement}. A cross-section fits every value of lambda equally well: that is Part A. \pause\ So the answer has to come from shocks that move people while fundamentals stay put.
+
+\cue{cards A, B, C} Part B uses the division of Germany, Redding and Sturm, a shock to market access across cities. Part C uses the Berlin Wall, Ahlfeldt, Redding, Sturm and Wolf, a shock within a city, to estimate lambda and to evaluate a metro line.
+
+Let me start with Part A, points (a) to (c).
+\end{say}
+
+\slide{Slide 3 --- Productivity now depends on size}{about 1 min 15 s}
+\begin{say}
+\cue{title} We add one thing to the Armington model of Topic 6: productivity depends on size. A-i equals A-bar-i, the fundamental, what the place is, times L-i to the lambda, what it gains from its own size. Nothing else changes.
+
+\cue{the three cards, one at a time} Each location sells its good at its wage divided by its productivity, A-bar L to the lambda. Substituting, we get three conditions. The \textbf{price index}: what destination n pays, summed over all suppliers. The \textbf{trade shares}: each supplier's term over the total --- the gravity equation: cheaper and closer suppliers sell more. And the \textbf{trade balance}: the wage bill of each location equals its sales to all destinations. Since rents are spent locally, spending on goods is w times L.
+
+\cue{bottom box, look at the Professor} The key point: A-bar and lambda \textbf{never appear separately}, only in their product, which is A. Rents, utility and migration contain no productivity. \pause\ So two worlds with the same A everywhere are the same economy.
+
+So what can the data tell us?
+\end{say}
+
+\slide{Slide 4 --- The data identify A, not its split}{about 1 min 15 s}
+\begin{say}
+They identify A, but not its split into A-bar and lambda.
+
+\cue{point 1} First, the inversion. Given population and wages, the trade balance is N equations in N unknowns, the ratios w over A. A fixed point solves them and recovers A \textbf{exactly}, up to a common scale. It uses L and w as data, and \textbf{never lambda}. In the code, that is \texttt{inv.Aeff}.
+
+\cue{point 2} Second, to get the fundamental we need lambda: A-bar equals A times L to the minus lambda. That is \texttt{inv.A}.
+
+\cue{point 3, slow down} Third --- and this is the point --- \textbf{every lambda fits the data equally well}. Pick any lambda, set A-bar equal to A times L to the minus that lambda, and the product gives back the same A in every location. So the data are reproduced exactly. \pause\ N equations pin down N composites, not N fundamentals plus lambda.
+
+\cue{blue box} So: is a city productive because of where it is, or because it is big? One cross-section cannot tell --- the same logic as Part C of Homework 1.
+
+\cue{``Why it matters''} Lambda does not change the fit, but it changes every counterfactual: after a shock workers move, and with lambda positive productivity moves with them. First, we checked the identification result in the code.
+\end{say}
+
+\slide{Slide 5 --- Same data, three values of lambda}{about 1 min 30 s}
+\begin{say}
+\cue{code} Point (b). In ARM1 we added a section after act 6. The data are the baseline equilibrium of act 5, generated with lambda equal to zero, and we invert the same data three times, with lambda 0, 0.07 and 0.25.
+
+\cue{line p = par} The key line is \texttt{p = par}: lambda changes only in a copy of the parameters. Changing it at the top of the script would change the data themselves, and we would compare three different economies. For each value we record the error of \texttt{inv.Aeff} against the true productivity, and the dispersion of log A-bar.
+
+\cue{table, error column} The error is \textbf{1.17 times ten to the minus twelve} in all three rows: machine precision. Even the number of iterations is the same, 4346. \cue{right block} Why? Because lambda enters \texttt{arm\_invert} only after the fixed point, in A equals Aeff divided by L to the lambda. The composite is the same vector each time: that is point (a) in numbers.
+
+\cue{table, sd column} The fundamentals instead change: their dispersion falls from \textbf{0.30 to 0.27 to 0.20}. \cue{second block} Productive places are also big --- the correlation between log A and log L is \textbf{0.81}. So a larger lambda credits more of their productivity to size, and the remaining fundamentals look more alike. The variance formula reproduces the table exactly, and the fall continues as long as lambda is below 0.43, the OLS slope of log A on log L.
+
+\cue{bottom box} Same data, same fit, different story about where productivity comes from. \pause\ But does that story matter? Point (c).
+\end{say}
+
+\slide{Slide 6 --- The same shock attracts far more people}{about 1 min 15 s}
+\begin{say}
+\cue{code} We repeat act 5: the same fundamentals and the same \textbf{20 percent shock} to A-bar in location 8, the middle of the line, for the three values of lambda. \cue{comment ``p in BOTH calls''} The key is that p goes into both calls to \texttt{arm\_solve}, the baseline and the shocked economy, because the baseline also changes with lambda. So the only difference between before and after is the shock.
+
+\cue{table, column ``Shocked j=8''} The population of location 8 grows by \textbf{26.9 percent} with lambda zero, \textbf{30.3} with 0.07, and \textbf{45.3} with 0.25: an \textbf{amplification} of 1.13 and 1.68. With lambda zero we recover act 5 exactly.
+
+\cue{formula} And there is an exact check: one plus the change in A equals 1.20 times one plus the change in L, to the lambda. At 0.25, 1.20 times 1.4528 to the 0.25 is 1.317 --- the 31.7 percent in the table.
+
+\cue{look at the Professor} The shock to the fundamental is always 20 percent; the productivity the economy actually sees is not.
+
+Why? Because workers bring productivity with them.
+\end{say}
+
+\slide{Slide 7 --- Workers bring productivity with them}{about 1 min 30 s}
+\begin{say}
+\cue{figure, the peak} The figure shows the population change along the line: the peak at location 8 grows with lambda, and since total population is fixed, the other locations lose.
+
+\cue{``The feedback loop''} Which variable feeds back into productivity? \textbf{Population, through the labour market}. The real wage rises in 8, workers migrate there, and with lambda positive they bring productivity with them: A rises with L. Then the \textbf{goods market} closes the loop: 8's good becomes cheaper everywhere, its sales and wages rise, utility rises further, and more workers come. With lambda zero the loop stops after the first step.
+
+\cue{``The neighbours''} The neighbours face two forces. Migration pulls workers away, but they buy a lot of 8's good, which is now cheaper, so their cost of living falls. With lambda positive the good is even cheaper and the second force wins: the right neighbour goes from \textbf{minus 0.28 to plus 2.46 percent}. Far away only the migration pull remains, and they lose more --- about minus 2.4 percent.
+
+\cue{bottom box, look at the Professor} So, as we said at the start: same data, three lambdas, all fitting equally well --- \pause\ yet the same plant raises local population by 27 or 45 percent. The policy answer depends on a parameter the cross-section cannot identify.
+
+\cue{hand over} My colleague will now show what lambda can mean, and what kind of variation would identify it.
+\end{say}
+
+\vspace{6pt}
+\begin{tcolorbox}[colback=tint,colframe=tint,arc=0pt]
+\small\textbf{Numbers to remember.} Error $1.17\times10^{-12}$, 4346 iterations \ $\cdot$\ sd$(\log\bar A)$ 0.30 / 0.27 / 0.20 \ $\cdot$\ corr$(\log A,\log L)=0.81$, turning point 0.43 \ $\cdot$\ $\Delta L_8$: $+26.9$ / $+30.3$ / $+45.3\%$ (ratio 1.13, 1.68) \ $\cdot$\ $1.20\times1.4528^{0.25}=1.317$ \ $\cdot$\ right neighbour $-0.28\to+2.46\%$.
+
+\textbf{Words to get right.} \emph{fundamental} ($\bar A$) vs \emph{composite} ($A$) \ $\cdot$\ \emph{real wage} (why workers move) \ $\cdot$\ labour market \emph{and} goods market \ $\cdot$\ one parameter, three values.
+\end{tcolorbox}
+\end{document}
